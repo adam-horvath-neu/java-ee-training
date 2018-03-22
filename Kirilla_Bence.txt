@@ -5,3 +5,7 @@ Log Entry 2018.03.22 17:08.
 Log Entry 2018.03.22 17:19
 
 	-Modify a local file
+
+Log Entry 2018.03.22 17:53
+
+	-Try to make a conflict.
