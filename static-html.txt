@@ -5,7 +5,7 @@ Ugyanúgy a saját branch-etekbe dolgozzatok, mint a Maven házinál.
 Hozz létre Eclipse-ben egy új Static Web Project-et, amiben megcsinálod a 
 feladatot. A CSS külön fájlban kapjon helyet, és hivatkozd be.
 
-<link rel="stylesheet" type="text/css" href="valami.css">
+<link rel="stylesheet" type="text/css" href="valami.css"> - DONE
 
 -------------------------------------------------------------------
 Feladat:
@@ -19,17 +19,17 @@ a hozzávalókat, majd az alatt egy paragrafusban az étel receptjét.
 Elvárások:
 -------------------------------------------------------------------
 
--Az oldalnak állíts be egy címet, ami megjelenik a böngésző fejlécébe. (head - title)
+-Az oldalnak állíts be egy címet, ami megjelenik a böngésző fejlécébe. (head - title) - DONE
 -Az oldalnak legyen háttérszíne.
 -Cseréld le a betűtípust a dokumentumon belül, ha szükséges a betű színét is (a háttérszín miatt).
 -Az oldalon a tartalom egy 70% széles blokkban kapjon helyet, aminek eltérő a háttérszíne. A blokknak adj padding-ot.
--A címhez használj valamilyen címsort (heading-et).
--A cím alatt szerepeljen egy rövid leírás az életről.
+-A címhez használj valamilyen címsort (heading-et). - DONE
+-A cím alatt szerepeljen egy rövid leírás az életről. - DONE
 -A leírás alatt szerepeljen egy kép az ételről, aminek változtasd meg a méretét, illetve adj keretet (border).
--A kép alatt szerepeljen egy táblázat, aminek az egyik oszlopában a hozzávalók nevét, a másikban a szükséges mennyiség szerepeljen.
--Legyen fejrésze (head) a táblázatnak.
+-A kép alatt szerepeljen egy táblázat, aminek az egyik oszlopában a hozzávalók nevét, a másikban a szükséges mennyiség szerepeljen. - DONE
+-Legyen fejrésze (head) a táblázatnak. - DONE
 -A táblázat minden páratlan sorát színezd át másik színűre. Ehhez használd az odd pszeudo szelektor: table tr:nth-child(even)
--A táblazat alatt pedig egy fieldset html elemben szerepeljen az elkészítési mód. A címe (legend) legyen: Elkészítés
+-A táblazat alatt pedig egy fieldset html elemben szerepeljen az elkészítési mód. A címe (legend) legyen: Elkészítés - DONE
 -Az egymás alatt szereplő elemek (cím, kép, táblázat) között használj térköz (margin).
 -Írj egy javascript függvényt <script> tag-ek között, amivel kiírod a console-ra (console.log()) a címnek (heading) megadott értéket (innerHtml). Ez script az oldal aljára (elkészítés fieldset alá) tett gomb megnyomására fusson le (onclick).
 pl. <button onclick="logTitle()">Cím kiírása</button>
