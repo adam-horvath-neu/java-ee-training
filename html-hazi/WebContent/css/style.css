@@ -1,2 +1,61 @@
 @charset "UTF-8";
 
+body {
+	background-color: rgb(255, 238, 0);
+	font-family: "Courier New", Monospace, serif;
+}
+
+#content {
+	width: 70%;
+	background-color: rgb(253, 255, 226);
+	color: rgb(25, 0, 255);
+	margin: 0 auto;
+	padding: 1em;
+	text-align: center;
+}
+
+.add-margin {
+	margin: 2em;
+}
+
+.food-img {
+	width: 40%;
+	height: 40%;
+	border: 4px solid rgb(255, 0, 0);
+}
+
+.food-description {
+	text-align: justify;
+}
+
+table {
+	background-color: rgb(0, 0, 0);
+	color: white;
+	text-align: center;
+	margin: 0 auto;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.table-container {
+	text-align: center;
+}
+
+table tr:nth-child(even) {
+	background-color: rgb(105, 105, 105);
+}
+
+td {
+	width: 50%;
+}
+
+.fieldset-title {
+	color: black;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.making-steps {
+	text-align: justify;
+	list-style: upper-roman; 
+}

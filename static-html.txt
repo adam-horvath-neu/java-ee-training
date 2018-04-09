@@ -20,19 +20,18 @@ Elvárások:
 -------------------------------------------------------------------
 
 -Az oldalnak állíts be egy címet, ami megjelenik a böngésző fejlécébe. (head - title) - DONE
--Az oldalnak legyen háttérszíne.
--Cseréld le a betűtípust a dokumentumon belül, ha szükséges a betű színét is (a háttérszín miatt).
--Az oldalon a tartalom egy 70% széles blokkban kapjon helyet, aminek eltérő a háttérszíne. A blokknak adj padding-ot.
+-Az oldalnak legyen háttérszíne. - DONE
+-Cseréld le a betűtípust a dokumentumon belül, ha szükséges a betű színét is (a háttérszín miatt). - DONE
+-Az oldalon a tartalom egy 70% széles blokkban kapjon helyet, aminek eltérő a háttérszíne. A blokknak adj padding-ot. - DONE
 -A címhez használj valamilyen címsort (heading-et). - DONE
 -A cím alatt szerepeljen egy rövid leírás az életről. - DONE
--A leírás alatt szerepeljen egy kép az ételről, aminek változtasd meg a méretét, illetve adj keretet (border).
+-A leírás alatt szerepeljen egy kép az ételről, aminek változtasd meg a méretét, illetve adj keretet (border). - DONE
 -A kép alatt szerepeljen egy táblázat, aminek az egyik oszlopában a hozzávalók nevét, a másikban a szükséges mennyiség szerepeljen. - DONE
 -Legyen fejrésze (head) a táblázatnak. - DONE
--A táblázat minden páratlan sorát színezd át másik színűre. Ehhez használd az odd pszeudo szelektor: table tr:nth-child(even)
+-A táblázat minden páratlan sorát színezd át másik színűre. Ehhez használd az odd pszeudo szelektor: table tr:nth-child(even) - DONE
 -A táblazat alatt pedig egy fieldset html elemben szerepeljen az elkészítési mód. A címe (legend) legyen: Elkészítés - DONE
--Az egymás alatt szereplő elemek (cím, kép, táblázat) között használj térköz (margin).
--Írj egy javascript függvényt <script> tag-ek között, amivel kiírod a console-ra (console.log()) a címnek (heading) megadott értéket (innerHtml). Ez script az oldal aljára (elkészítés fieldset alá) tett gomb megnyomására fusson le (onclick).
-pl. <button onclick="logTitle()">Cím kiírása</button>
+-Az egymás alatt szereplő elemek (cím, kép, táblázat) között használj térköz (margin). - DONE
+-Írj egy javascript függvényt <script> tag-ek között, amivel kiírod a console-ra (console.log()) a címnek (heading) megadott értéket (innerHtml). Ez script az oldal aljára (elkészítés fieldset alá) tett gomb megnyomására fusson le (onclick). pl. <button onclick="logTitle()">Cím kiírása</button> - DONE
 
 -------------------------------------------------------------------
 Megjegyzés:
