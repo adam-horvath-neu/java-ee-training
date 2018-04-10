@@ -27,7 +27,7 @@
 		</dependency>
 		<dependency>
 			<groupId>hu.training</groupId>
-			<artifactId>maven-multimodule-boking-core</artifactId>
+			<artifactId>maven-multimodule-booking-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

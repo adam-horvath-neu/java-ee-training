@@ -3,6 +3,7 @@ package hu.training.servicelocator;
 import hu.training.authenticator.Authenticator;
 import hu.training.authenticator.DBAuthenticator;
 import hu.training.authenticator.LDAPAuthenticator;
+import hu.training.booking.ticket.BookingServiceManager;
 
 public class ServiceLocator {
 
@@ -12,5 +13,9 @@ public class ServiceLocator {
 	
 	public static Authenticator getLDAPAuthenticator() {
 		return new LDAPAuthenticator();
+	}
+	
+	public static BookingServiceManager getBookingServiceManager() {
+		return new BookingServiceManager();
 	}
 }

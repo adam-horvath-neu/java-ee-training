@@ -11,11 +11,11 @@ public class TicketsMock {
 
 	static {
 		tickets = Arrays.asList(new Ticket[] {
-				new Ticket(1,"Sound jegy",40000),
-				new Ticket(2,"Campus jegy",15000),
-				new Ticket(3,"Sziget jegy",30000),
-				new Ticket(4,"Volt jegy",20000),
-				new Ticket(5,"Tomorrowland jegy",50000)
+				new Ticket("1","Sound jegy",40000),
+				new Ticket("2","Campus jegy",15000),
+				new Ticket("3","Sziget jegy",30000),
+				new Ticket("4","Volt jegy",20000),
+				new Ticket("5","Tomorrowland jegy",50000)
 		});
 		
 		

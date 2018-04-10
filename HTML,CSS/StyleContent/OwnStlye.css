@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+body {
+	background-color: lightblue;
+	font-family: Lucida Console;
+}
+
+div {
+	background-color: yellow;
+	padding: 0.7%;
+}
+
+img {
+	width: 50%;
+	height: 50%;
+	border-style: solid;
+	margin-top: 2%;
+	margin-bottom: 2%
+}
+
+h1 {
+	align-self: center;
+}
+
+table tr:nth-child(even) {
+	color: red;
+	background-color: lime;
+}
+

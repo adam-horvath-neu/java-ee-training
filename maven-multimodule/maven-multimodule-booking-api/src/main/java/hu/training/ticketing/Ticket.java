@@ -2,15 +2,15 @@ package hu.training.ticketing;
 
 public class Ticket {
 
-	private int id;
+	private String id;
 	private String eventName;
 	private int cost;
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -30,20 +30,13 @@ public class Ticket {
 		this.cost = cost;
 	}
 
-	public Ticket(int id, String eventName, int cost) {
-		super();
-		this.id = id;
-		this.eventName = eventName;
-		this.cost = cost;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + cost;
 		result = prime * result + ((eventName == null) ? 0 : eventName.hashCode());
-		result = prime * result + id;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -63,9 +56,19 @@ public class Ticket {
 				return false;
 		} else if (!eventName.equals(other.eventName))
 			return false;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public Ticket(String id, String eventName, int cost) {
+		super();
+		this.id = id;
+		this.eventName = eventName;
+		this.cost = cost;
 	}
 
 }

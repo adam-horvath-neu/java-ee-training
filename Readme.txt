@@ -36,5 +36,3 @@ A Merchant osztályban a pay(int amout) metódust írjuk át bookTicket(String t
 A metódusban keressük meg a fent elkészített TicketMock-ból az id-nak megfelelő jegyet, majd a Merchant-hez tartozó paymentStrategy-n keresztül fizessük ki a jegyet (hívjuk meg pay(int amout) metódus). A bookTicket metódus adja vissza a megkeresett jegyet, majd adjuk vissza a bookingService-ben is a jegyet. Majd a felületen írjük ki ennek a jegynek a részleteit.
 
 A maven-multimodule-web készítsünk a ServiceLocator osztályba egy új metódust, ami a BookinService interfészhez visszaadja nekünk a hozzá tartozó implementációt. Hasonlóan az getDatabaseAuthenticatorService() és getLDAPAuthenticatorService()-hez. Ezen keresztül hívjük meg a web-ről a megfelelő metódusokat.
-
-
