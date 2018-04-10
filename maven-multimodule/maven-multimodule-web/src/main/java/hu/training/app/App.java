@@ -3,7 +3,7 @@ package hu.training.app;
 import java.util.Collection;
 import java.util.Scanner;
 
-import hu.training.booking.ticket.TicketsMock;
+import hu.training.booking.ticket.BookingServiceManager;
 import hu.training.login.LoginBean;
 import hu.training.ticketing.Ticket;
 
@@ -17,25 +17,20 @@ public class App {
 		String password = scanner.nextLine();
 		if (new LoginBean().login(username, password)) {
 			System.out.println("Successfull login.");
+			System.out.println("Avaible Tickets are the following:");
+			Collection<Ticket> tickets = new BookingServiceManager().getTickets();
+			for (Ticket ticket : tickets) {
+				System.out.println(ticket);
+			}
+			System.out.println("Choose a ticket by picking an ID: ");
+			String ticketId = scanner.nextLine();
+			System.out.println("Choose a merchant: ");
+			String merchantType = scanner.nextLine();
+			System.out.println("Choose the payment type: ");
+			String paymentType = scanner.nextLine();
 		} else {
 			System.out.println("Failed to login.");
 		}
-		scanner.close();
-
-		System.out.println("Avaible Tickets are the following:");
-		Collection<Ticket> tickets = TicketsMock.getTickets();
-		for (Ticket ticket : tickets) {
-			System.out.println(
-					"ID: " + ticket.getId() + ", Event: " + ticket.getEventName() + ",Cost: " + ticket.getCost());
-		}
-
-		scanner = new Scanner(System.in);
-		System.out.println("Choose a ticket by picking an ID: ");
-		String ticketId = scanner.nextLine();
-		System.out.println("Choose a merchant: ");
-		String merchantType = scanner.nextLine();
-		System.out.println("Choose the payment type: ");
-		String paymentType = scanner.nextLine();
 
 		scanner.close();
 

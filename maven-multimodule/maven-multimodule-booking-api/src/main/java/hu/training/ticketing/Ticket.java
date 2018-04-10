@@ -71,4 +71,9 @@ public class Ticket {
 		this.cost = cost;
 	}
 
+	@Override
+	public String toString() {
+		return "ID: " + id + ", Event: " + eventName + ", Cost: " + cost + " HUF.";
+	}
+
 }
