@@ -8,9 +8,9 @@ import hu.training.factory.merchant.MerchantFactory;
 import hu.training.factory.payment.Payment;
 import hu.training.factory.payment.PaymentFactory;
 import hu.training.ticket.Ticket;
-import hu.training.ticket.TicketsMock;
 import hu.training.ticket.merchant.MerchantType;
 import hu.training.ticket.payment.PaymentType;
+import hu.training.ticketsmock.TicketsMock;
 
 public class BookingServiceImpl implements BookingService{
 

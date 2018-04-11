@@ -1,7 +1,9 @@
-package hu.training.ticket;
+package hu.training.ticketsmock;
 
 import java.util.Arrays;
 import java.util.Collection;
+
+import hu.training.ticket.Ticket;
 
 public class TicketsMock {
 	

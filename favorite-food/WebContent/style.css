@@ -1,0 +1,28 @@
+@charset "UTF-8";
+body{
+/* 	background-color: #ccff66; */
+	background-color: maroon;
+	
+	font-family: "Courier New", cursive, times;
+}
+div {
+	width: 70%;
+	background-color: #ccff99;
+	padding: 20px;
+}
+img {
+	border-style: solid;
+	width: 20%;
+}
+table{
+	border: solid;
+	border-width: thin;
+}
+ table tr:nth-child(even){
+  background-color: yellow;
+ }
+
+h1, img, table, button{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}

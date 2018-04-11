@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Olasz avokádós pirítós</title>
+</head>
+<body>
+	<div>
+		<h1 id="food-name">Olasz avokádós pirítós</h1>
+		<p>Ebben a nagy melegben nem nagyon van étvágyunk, de enni kell,
+			szóval hoztunk mára egy ínycsiklandó, könnyű, nyári finomságot, ami
+			egészséges, finom és tökéletes ilyen meleg napokon</p>
+		<img alt="" src="..\Resources\avokado.jpg">
+
+		<table>
+			<tr>
+				<th>Mennyiség</th>
+				<th>Hozzávaló</th>
+			</tr>
+			<tr>
+				<td>2 db</td>
+				<td>érett avokádó</td>
+			</tr>
+			<tr>
+				<td>2 teáskanál</td>
+				<td>friss citromlé</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>himalájasó és bors</td>
+			</tr>
+			<tr>
+				<td>4 szelet</td>
+				<td>teljes kiőrlésű vagy rozskenyér</td>
+			</tr>
+			<tr>
+				<td>1 csomag</td>
+				<td>mozzarella sajt</td>
+			</tr>
+			<tr>
+				<td>1 bögre</td>
+				<td>koktélparadicsom</td>
+			</tr>
+			<tr>
+				<td>1/4 bögre</td>
+				<td>pazsalikomlevelek</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>balzsamecet és méz</td>
+			</tr>
+
+		</table>
+		<fieldset>
+			<legend>Elkészítés</legend>
+			<p>Vágd félbe az avokádókat, vedd ki a magokat és kanalazd egy
+				tálba. Sózd, borsozd, add hozzá a citromlét. Villával nyomkodd szét.
+				Pirítsd meg a kenyereket. Kend rá az avokádó krémet, tedd rá a
+				felszeletelt mozzarellát és a félbevágott koktélparadicsomokat. A
+				balzsamecetet forrald össze az 1 teáskanál mézzel, majd csurgasd rá
+				a kenyerekre.</p>
+		</fieldset>
+
+		<button onclick="logTitle()">Cím kiírása</button>
+
+	</div>
+	<script>
+		function logTitle() {
+			console.log(document.getElementById("food-name").innerHTML.trim());
+		};
+	</script>
+</body>
+</html>
