@@ -2,6 +2,11 @@ package hu.training.app;
 
 import java.util.Scanner;
 
+import hu.training.authenticate.booking.auth.TicketAuthenticate;
+import hu.training.authenticate.booking.stm.TicketMerchant;
+import hu.training.authenticate.booking.type.MerchantType;
+import hu.training.authenticate.booking.type.PaymentType;
+import hu.training.authenticator.booking.tckt.Ticket;
 import hu.training.login.LoginBean;
 
 public class App {
@@ -14,6 +19,19 @@ public class App {
 		String password = scanner.nextLine();
 		if (new LoginBean().login(username, password)) {
 			System.out.println("Successfull login.");
+			System.out.println("The following tickets are aviable");
+			
+			for (Ticket t : new TicketAuthenticate().getTickets()) {
+				System.out.println(t);
+			}
+			System.out.println("Select one ticket by ID");
+			String id = scanner.nextLine();
+			System.out.println("Choose one merchant type and the payment type");
+			String merchant = scanner.nextLine();
+			String payment = scanner.nextLine();
+			Ticket types =new TicketAuthenticate().bookTicket(id, MerchantType.valueOf(merchant), PaymentType.valueOf(payment));
+			System.out.println(types);
+			
 		} else {
 			System.out.println("Failed to login.");
 		}

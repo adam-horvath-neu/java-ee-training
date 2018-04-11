@@ -37,4 +37,14 @@ public class Ticket {
 		this.cost = cost;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Ticket [id=" + id + ", eventName=" + eventName + ", cost=" + cost + "]";
+	}
+
 }

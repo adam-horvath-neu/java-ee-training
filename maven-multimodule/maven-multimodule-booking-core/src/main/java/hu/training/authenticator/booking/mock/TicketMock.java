@@ -5,7 +5,7 @@ import java.util.Collection;
 
 import hu.training.authenticator.booking.tckt.Ticket;;
 
-public class TicketMock {
+public class TicketMock  {
 
 	private static final Collection<Ticket> ticket;
 	
@@ -20,10 +20,13 @@ public class TicketMock {
 		});
 		
 	}
-	
-	public static Collection<Ticket> getTickets(){
+
+
+	public static Collection<Ticket> getTicket() {
 		return ticket;
 	}
+
+	
 	
 	
 }
