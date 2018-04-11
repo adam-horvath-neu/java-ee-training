@@ -28,6 +28,16 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>hu.training</groupId>
+			<artifactId>maven-multimodule-booking-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>hu.training</groupId>
+			<artifactId>maven-multimodule-booking-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
