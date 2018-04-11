@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Rakott tészta</title>
+</head>
+<body>
+	<div>
+		<h1 id="header">Rakott tészta recept</h1>
+		<p>Egyszerű, kiadós, gyorsan elkészíthető étel a rakott tészta,
+			itt egy pofon egyszerű recept.</p>
+		<img src="..\Resources\tészta.jpg" border="5">
+
+		<table>
+			<tr>
+				<th>Hozzávaló</th>
+				<th>Mennyiség</th>
+			</tr>
+			<tr>
+				<td>35 dkg</td>
+				<td>spagetti tészta</td>
+			</tr>
+			<tr>
+				<td>1 db</td>
+				<td>vöröshagyma</td>
+			</tr>
+			<tr>
+				<td>1 teáskanál</td>
+				<td>morzsolt bazsalikom</td>
+			</tr>
+			<tr>
+				<td>1 ek</td>
+				<td>olívaolaj</td>
+			</tr>
+			<tr>
+				<td>1 ek</td>
+				<td>finomliszt</td>
+			</tr>
+			<tr>
+				<td>5 dkg</td>
+				<td>sűrített paradicsom</td>
+			</tr>
+			<tr>
+				<td>50 dkg</td>
+				<td>konzerv paradicsom</td>
+			</tr>
+			<tr>
+				<td>5 közepes db</td>
+				<td>újhagyma</td>
+			</tr>
+			<tr>
+				<td>5 dkg</td>
+				<td>sonka</td>
+			</tr>
+			<tr>
+				<td>10 dkg</td>
+				<td>trappista sajt</td>
+			</tr>
+			<tr>
+				<td>ízlés szerint</td>
+				<td>só</td>
+			</tr>
+		</table>
+
+		<fieldset>
+			<legend>Elkészítés</legend>
+			<ol>
+				<li>A vöröshagymát megpucoljuk, és felkockázzuk.</li>
+				<li>Az olajat felhevítjük, és üvegesre pároljuk rajta a
+					hagymát. Ezután hozzáadjuk a sűrített paradicsomot, a lisztet, a
+					hámozott paradicsomot, megsózzuk, majd felforraljuk, és levesszük a
+					tűzről.</li>
+				<li>Az újhagymát megmossuk, felkarikázzuk. A sonkát apró
+					kockákra vágjuk. A paradicsommártáshoz adjuk őket.</li>
+				<li>A tésztát forró, sós vízben megfőzzük, majd leszűrjük.
+					Összekeverjük a mártással, és egy jénai tálba tesszük.</li>
+				<li>A sajtot lereszeljük, és megszórjuk vele a spagettit.</li>
+				<li>Előmelegített sütőben 15 percig sütjük.</li>
+			</ol>
+
+			<br>
+			<ul>
+				<li>sütési hőfok: 175°C</li>
+				<li>sütési mód: hőlégkeveréses</li>
+				<li>tepsi mérete: 20x30 cm</li>
+				<li>költség: 1000 Ft</li>
+			</ul>
+		</fieldset>
+		
+		<button onclick="logTitle()">Cím kiírása</button>
+
+	</div>
+	<script>
+		function logTitle() {
+			console.log(document.getElementById("header").innerHTML);
+		};
+	</script>
+</body>
+</html>
