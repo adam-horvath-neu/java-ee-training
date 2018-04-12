@@ -1,3 +1,3 @@
 ﻿# Feladatok
-## Maven-module - folyamatban
+## Maven-module - kész
 ## Static html - kész
