@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+* {
+	font-family: cursive, sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+blockquote {
+	width: 70%;
+	background-color: red;
+	padding: 10px;
+	text-align: center;
+	margin: auto;
+	
+}
+body {
+	background: black;
+	text-align: center;
+}
+#title {
+	margin-bottom: 20px;
+}
+div {
+	margin-bottom: 50px;
+}
+#image {
+	width: 320px;
+	height: 240px;
+	border: 5px solid #8B0000;
+	margin-bottom: 30px;
+}
+table {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+}
+table tr:nth-child(even) {
+	background-color: #8B0000;
+}
+fieldset {
+	margin-bottom: 30px;
+}

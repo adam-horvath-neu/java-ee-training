@@ -1,10 +1,10 @@
 package hu.training.servicelocator;
 
-import hu.training.authenticate.booking.auth.TicketAuthenticate;
-import hu.training.authentication.booking.BookingService;
 import hu.training.authenticator.Authenticator;
 import hu.training.authenticator.DBAuthenticator;
 import hu.training.authenticator.LDAPAuthenticator;
+import hu.training.booking.auth.TicketAuthenticate;
+import hu.training.booking.service.BookingService;
 
 public class ServiceLocator {
 

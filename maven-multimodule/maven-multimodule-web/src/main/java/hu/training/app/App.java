@@ -2,11 +2,11 @@ package hu.training.app;
 
 import java.util.Scanner;
 
-import hu.training.authenticate.booking.auth.TicketAuthenticate;
-import hu.training.authenticate.booking.stm.TicketMerchant;
-import hu.training.authenticate.booking.type.MerchantType;
-import hu.training.authenticate.booking.type.PaymentType;
-import hu.training.authenticator.booking.tckt.Ticket;
+import hu.training.booking.auth.TicketAuthenticate;
+import hu.training.booking.stm.TicketMerchant;
+import hu.training.booking.tckt.Ticket;
+import hu.training.booking.type.MerchantType;
+import hu.training.booking.type.PaymentType;
 import hu.training.login.LoginBean;
 
 public class App {
