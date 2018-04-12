@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="favoriteFood.css">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My favorite food</title>
+</head>
+<body>
+	<div>
+		<h1 id="pogi">Pogácsa</h1>
+		<p>A pogácsa egy kisebb kerek, általában sós sütemény, de létezik
+			édes változata is. A Kárpát-medencei, a balkáni és a török konyha
+			jellegzetes terméke. Elterjedt változatai a burgonyás, vajas,
+			tepertős, juhtúrós és káposztás pogácsa.</p>
+		<img src="pogacsa.jpg" alt="Pogácsa">
+		<table>
+			<tr>
+				<th>Hozzávalók / 4 adag</th>
+				<th>Mennyiség</th>
+			</tr>
+			<tr>
+				<td>finomliszt (finom)</td>
+				<td>50 dekagramm</td>
+			</tr>
+			<tr>
+				<td>mangalica zsír / vaj</td>
+				<td>15 dekagramm</td>
+			</tr>
+			<tr>
+				<td>élesztő</td>
+				<td>2.5 dekagramm</td>
+			</tr>
+			<tr>
+				<td>só</td>
+				<td>1 evőkanál</td>
+			</tr>
+			<tr>
+				<td>cukor</td>
+				<td>1 evőkanál</td>
+			</tr>
+			<tr>
+				<td>víz / tej</td>
+				<td>2 deciliter</td>
+			</tr>
+			<tr>
+				<td>tojás (a kenéshez)</td>
+				<td>1 darab</td>
+			</tr>
+			<tr>
+				<td>sajt</td>
+				<td>5 dekaragramm</td>
+			</tr>
+		</table>
+		<fieldset>
+			<legend>Elkészítés</legend>
+			1. Egy nagy tálba beletesszük a lisztet, az olvasztott zsírt, a
+			cukrot és a sót.<br> 2. A tejbe vagy a vízbe belemorzsoljuk a
+			fél csomag élesztőt, és meglangyosítjuk a mikróban vagy a sütőben pár
+			pillanatig, amíg az élesztő megkel.<br> 3. Lassan, kevergetés
+			közben, beletesszük a megkelt élesztős vizet.<br> 4.
+			Összekeverjük alaposan.<br> 5. A tálban hagyjuk, és megszórjuk
+			egy kis liszttel, és meleg helyre tesszük.<br> 6. Kb. 15-30 perc
+			múlva elővesszük, és kinyújtjuk - próbáljuk meg minél többször félbe
+			hajtani.<br> 7. Egy nagyobb kör formával kiszaggatjuk a
+			pogácsákat, és a kivajazott tepsire tesszük.<br> 8. Megsózzuk
+			mindegyiknek a tetejét kicsit, lekenjük tojással, utána ráreszelünk
+			egy kevés sajtot (bármilyen lehet).<br> 9. Betesszük az
+			előmelegített sütőbe, 160-180 fokra, kb. 15-20 percre. (Addig sütjük
+			csak, amíg el nem kezd barnulni a széle, mert ha túl sokáig marad
+			bent, akkor megkeményedik.)<br>
+		</fieldset>
+		<button onclick="logTitle()">Cím kiírása</button>
+	</div>
+	<script>
+		function logTitle() {
+			var pogi = document.getElementById("pogi").innerHTML;
+			console.log(pogi);
+		}
+	</script>
+</body>
+</html>
