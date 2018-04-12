@@ -32,7 +32,7 @@ public abstract class Merchant {
 		paymentMode.pay(amount);
 		printMessage();
 		System.out.println("---");
-		
+		System.out.println(returnedTicket.toString());
 		return returnedTicket;
 	}
 
