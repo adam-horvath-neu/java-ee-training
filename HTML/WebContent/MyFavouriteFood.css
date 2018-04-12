@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+
+.page {
+	
+	.page {
+    background-color: yellow;
+    font-family: "Times New Roman";
+    margin: 30px;
+   padding: 70px;
+    border: 1px solid #4CAF50;
+    font-size: 14px;
+}
+
+.main {
+
+ background-color: grey;
+ 
+}
+
+.leir{
+ 
+ font-size: 14px;
+ margin: 10px;
+}
+
+.kep {
+ border: 10px solid transparent;
+}
+
+#table tr:nth-child(even){background-color: #f2f2f2;
+                        
+}
+
+.tab {
+margin 10px;
+
+}
+
+                        
+	
