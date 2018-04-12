@@ -3,8 +3,8 @@ package hu.training.factory.payment;
 import hu.training.ticket.payment.PaymentType;
 
 public class PaymentFactory {
-	
-	public Payment getPaymentType(PaymentType paymentType) {
+
+	public static Payment getPaymentType(PaymentType paymentType) {
 		switch (paymentType) {
 		case CASH:
 			return new PayWithCash();
@@ -17,5 +17,3 @@ public class PaymentFactory {
 		}
 	}
 }
-
-

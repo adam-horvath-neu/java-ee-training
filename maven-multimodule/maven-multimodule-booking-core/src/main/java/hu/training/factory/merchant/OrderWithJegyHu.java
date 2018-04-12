@@ -1,9 +1,11 @@
 package hu.training.factory.merchant;
 
+import hu.training.ticket.Ticket;
+
 public class OrderWithJegyHu extends Merchant {
 
-	public void bookTicket(String ticketId) {
-		System.out.println("Merchant: Jegy.hu, ticketID: " + ticketId);
+	public void printMessage(Ticket ticket) {
+		System.out.println("Merchant: Jegy.hu, ticket: " + ticket);
 
 	}
 

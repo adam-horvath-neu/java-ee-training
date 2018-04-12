@@ -12,29 +12,19 @@ import hu.training.ticket.merchant.MerchantType;
 import hu.training.ticket.payment.PaymentType;
 import hu.training.ticketsmock.TicketsMock;
 
-public class BookingServiceImpl implements BookingService{
+public class BookingServiceImpl implements BookingService {
 
 	public Collection<Ticket> getTickets() {
 		return TicketsMock.getTickets();
 	}
 
 	public Ticket bookTicket(String id, MerchantType merchantType, PaymentType paymentType) {
-		MerchantFactory mf = new MerchantFactory();
-		Merchant merchant = mf.getMerchantType(merchantType);
-		PaymentFactory pf = new PaymentFactory();
-		Payment payment = pf.getPaymentType(paymentType);
-		Ticket ticket= null;
-		for (Ticket mockTicket : TicketsMock.getTickets()) {
-			if (mockTicket.getId().contentEquals(id))
-				ticket=mockTicket;
-		}
-		if (ticket.equals(null)) {
-			System.out.println("NEM JOOOO");
-		} else {
-			merchant.bookTicket(ticket.getId());	//kiírja a merchantot
-			payment.pay(ticket.getCost());	//kifizetjük a adott fizetési móddal a jegyet
-		}
-		
+		Merchant merchant = MerchantFactory.getMerchantType(merchantType);
+		Payment payment = PaymentFactory.getPaymentType(paymentType);
+		Ticket ticket = merchant.bookTicket(id);
+		merchant.setPayment(payment);
+		merchant.getPayment().pay(ticket.getCost());
+		merchant.printMessage(ticket);
 		return ticket;
 	}
 

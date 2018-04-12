@@ -11,11 +11,11 @@ public class ServiceLocator {
 	public static Authenticator getDbAuthenticator() {
 		return new DBAuthenticator();
 	}
-	
+
 	public static Authenticator getLDAPAuthenticator() {
 		return new LDAPAuthenticator();
 	}
-	
+
 	public static BookingService getBookingService() {
 		return new BookingServiceImpl();
 	}

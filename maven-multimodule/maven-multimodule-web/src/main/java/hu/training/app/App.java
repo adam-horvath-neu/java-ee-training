@@ -2,6 +2,7 @@ package hu.training.app;
 
 import java.util.Scanner;
 
+import hu.training.bookingservice.BookingService;
 import hu.training.login.LoginBean;
 import hu.training.servicelocator.ServiceLocator;
 import hu.training.ticket.merchant.MerchantType;
@@ -17,23 +18,24 @@ public class App {
 		String password = scanner.nextLine();
 		if (new LoginBean().login(username, password)) {
 			System.out.println("Successfull login.");
-			
-			System.out.println("Ezek az elérhető jegyek:");
-			System.out.println(ServiceLocator.getBookingService().getTickets());
+
+			BookingService bs = ServiceLocator.getBookingService();
+
+			System.out.println("\nAvailable tickets: \n" + bs.getTickets());
 
 			System.out.println("Ticket id:");
 			String id = scanner.nextLine();
 
 			System.out.println("Choose merchant: (TIXA, TICKETPORTAL, JEGYHU)");
-			String merchant = scanner.nextLine();
-			MerchantType merchantType = MerchantType.valueOf(merchant); //szebben?
+			String merchantScanner = scanner.nextLine();
 
 			System.out.println("Choose payment type: (CASH, PAYPAL, BITCOIN)");
-			String payment = scanner.nextLine();
-			PaymentType paymentType = PaymentType.valueOf(payment); //
+			String paymentScanner = scanner.nextLine();
 
-			System.out.println("\nYour bill:");
-			ServiceLocator.getBookingService().bookTicket(id, merchantType, paymentType);
+			System.out.println("\n-------------------------------------------------------");
+			MerchantType merchantType = MerchantType.valueOf(merchantScanner); // ENUM érték
+			PaymentType paymentType = PaymentType.valueOf(paymentScanner); // ENUM érték
+			bs.bookTicket(id, merchantType, paymentType);
 
 		} else {
 			System.out.println("Failed to login.");
