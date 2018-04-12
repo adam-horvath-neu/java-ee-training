@@ -1,10 +1,5 @@
 package hu.training.booking.stm;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-
-import hu.training.booking.auth.TicketAuthenticate;
 import hu.training.booking.mock.TicketMock;
 import hu.training.booking.paytypes.Cash;
 import hu.training.booking.pstr.PaymentStrategy;
@@ -34,6 +29,7 @@ public abstract class Merchant {
 
 			}
 		}
+		printMessage(ticket);
 		paymentMode.pay(ticket.getCost());
 		
 		System.out.println("---");
@@ -41,7 +37,7 @@ public abstract class Merchant {
 
 	}
 
-
-
+	public abstract void printMessage(Ticket ticket);
+	
 
 }

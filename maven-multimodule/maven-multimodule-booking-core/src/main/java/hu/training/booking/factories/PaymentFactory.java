@@ -8,7 +8,7 @@ import hu.training.booking.type.PaymentType;
 
 public class PaymentFactory {
 
-	public PaymentStrategy getPaymentTypes(PaymentType payment)
+	public static PaymentStrategy getPaymentTypes(PaymentType payment)
 	{
 		switch (payment) {
 		case BANKCARD:

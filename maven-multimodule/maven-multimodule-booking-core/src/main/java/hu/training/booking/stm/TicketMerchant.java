@@ -23,6 +23,13 @@ public class TicketMerchant extends Merchant {
 	}
 
 
+	@Override
+	public void printMessage(Ticket ticket) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	
 	
 
