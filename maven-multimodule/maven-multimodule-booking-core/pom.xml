@@ -7,31 +7,12 @@
 		<artifactId>maven-multimodule</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>maven-multimodule-core</artifactId>
-
+	<artifactId>maven-multimodule-booking-core</artifactId>
 	<dependencies>
-		<dependency>
-			<groupId>hu.training</groupId>
-			<artifactId>maven-multimodule-api</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>hu.training</groupId>
-			<artifactId>maven-multimodule-booking-core</artifactId>
-			<version>${project.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>hu.training</groupId>
 			<artifactId>maven-multimodule-booking-api</artifactId>
 			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
 		</dependency>
 	</dependencies>
 </project>
