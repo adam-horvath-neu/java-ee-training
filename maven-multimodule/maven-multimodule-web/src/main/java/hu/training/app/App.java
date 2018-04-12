@@ -26,8 +26,9 @@ public class App {
 			}
 			System.out.println("Select one ticket by ID");
 			String id = scanner.nextLine();
-			System.out.println("Choose one merchant type and the payment type");
+			System.out.println("Choose one merchant type from te list : TIXA, TICKETPORTAL, SZALLASHU");
 			String merchant = scanner.nextLine();
+			System.out.println("Choose one payment type from te list : CASH, PAYPAL, BANKCARD");
 			String payment = scanner.nextLine();
 			Ticket types =new TicketAuthenticate().bookTicket(id, MerchantType.valueOf(merchant), PaymentType.valueOf(payment));
 			System.out.println(types);
