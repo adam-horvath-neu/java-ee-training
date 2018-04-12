@@ -1,0 +1,50 @@
+body {
+	background-color: rgb(201, 99, 71);
+	font: 15px arial, sans-serif;
+
+
+}
+
+th, td {
+	padding: 5px;
+	text-align: left;
+	border: 1px solid black;
+}
+
+table {
+	padding:10px;
+	border: 1px solid black;
+}
+
+tr:hover {
+	background-color: coral;
+}
+
+table tr:nth-child(even){
+	color:#ffc7b3;
+}
+
+img{
+	border: 2px solid coral;
+    padding: 15px;
+	height: 50%;
+    width: 30%;
+    margin-bottom:20px;
+   
+}
+
+.container{
+	width: 70%;
+	height: 70%;
+    padding: 50px 50px 75px 100px;
+	background-color:rgb(178, 86, 60);
+	
+}
+
+button{
+	margin-top:30px;
+}
+
+fieldset legend{
+	padding-top:30px;
+}

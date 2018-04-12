@@ -2,7 +2,6 @@ package hu.training.ticket;
 
 import java.util.Collection;
 
-import hu.training.booking.TicketMock;
 import hu.training.ticket.paymentclasses.PayByCash;
 
 public abstract class Merchant {
@@ -25,9 +24,10 @@ public abstract class Merchant {
 		Ticket returnedTicket = null;
 		Collection<Ticket> tickets = TicketMock.getTickets();
 		for(Ticket t : tickets) {
-			if(t.getId() == ticketID)
+			if(t.getId().equals(ticketID)) {
 				returnedTicket = t;
 				amount = t.getCost();
+		}
 		}
 		paymentMode.pay(amount);
 		printMessage();
@@ -35,6 +35,7 @@ public abstract class Merchant {
 		
 		return returnedTicket;
 	}
+
 
 	// Each merchant can display different message
 	protected abstract void printMessage();

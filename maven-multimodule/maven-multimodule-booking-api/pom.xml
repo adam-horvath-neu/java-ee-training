@@ -23,11 +23,10 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>hu.training</groupId>
-			<artifactId>maven-multimodule-booking-core</artifactId>
-			<version>${project.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>hu.training</groupId> -->
+<!-- 			<artifactId>maven-multimodule-booking-core</artifactId> -->
+<!-- 			<version>${project.version}</version> -->
+<!-- 		</dependency>  -->
 	</dependencies>
 </project>

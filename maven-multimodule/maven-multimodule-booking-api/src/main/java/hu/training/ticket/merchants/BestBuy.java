@@ -6,7 +6,7 @@ public class BestBuy extends Merchant {
 
 	@Override
 	protected void printMessage() {
-		System.out.println("Thank you for shoppint at BestBuy!");
+		System.out.println("Thank you for shopping at BestBuy!");
 		
 	}
 

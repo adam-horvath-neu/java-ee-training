@@ -7,7 +7,7 @@ public class ShopOnline extends Merchant {
 	@Override
 	protected void printMessage() {
 		// TODO Auto-generated method stub
-		System.out.println("Thank you for shoppint at www.shoponline.com!");
+		System.out.println("Thank you for shopping at www.shoponline.com!");
 	}
 	
 
