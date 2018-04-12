@@ -26,20 +26,18 @@ public abstract class Merchant {
 	// Delegate to the behavior class
 	public Ticket bookTicket(String ticketId) {
 	
-		int amount=10;
-		String eventName="eventname";
+		Ticket ticket = null;
 		for (Ticket t : TicketMock.getTicket()) {
 
 			if (t.getId().equals(ticketId)) {
-				eventName = t.getEventName();
-				amount = t.getCost();
+				ticket = t;
 
 			}
 		}
-		paymentMode.pay(amount);
+		paymentMode.pay(ticket.getCost());
 		
 		System.out.println("---");
-		return new Ticket(ticketId, eventName, amount);
+		return  ticket;
 
 	}
 
