@@ -34,6 +34,7 @@ img{
 }
 
 .container{
+	margin:auto;
 	width: 70%;
 	height: 70%;
     padding: 50px 50px 75px 100px;
@@ -45,6 +46,6 @@ button{
 	margin-top:30px;
 }
 
-fieldset legend{
-	padding-top:30px;
+fieldset{
+	margin-top:10px;
 }
