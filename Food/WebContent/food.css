@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+body {
+	background-color: #333333;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	color: #004d00;
+}
+
+h1 {
+	font-family: Impact, Charcoal, sans-serif; color : blue;
+	text-align: center;
+	color: blue;
+}
+
+#maindiv {
+	background-color: #FFFFF0;
+	text-aling: center;
+	width: 70%;
+	padding: 25px 50px;
+	margin: auto;
+}
+
+p {
+	color: red;
+	text-align: center;
+}
+
+.kep {
+	width: 45%;
+	height: 45%;
+	border: 5px solid #004d00;
+}
+
+.terkoz {
+	margin: 10px;
+}
+
+#kepdiv {
+	text-align: center;
+}
+
+table {
+	border: 2px solid black;
+	width: 100%;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: center;
+	padding: 4px;
+}
+
+#elkeszites {
+	font-size: 30px;
+	font: bold;
+	color: black;
+}
+
+#gomb {
+	text-align: center;
+}

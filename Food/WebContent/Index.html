@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="food.css">
+<meta charset="UTF-8">
+<title>Rakott Krumpli</title>
+</head>
+<body>
+	<div id="maindiv">
+		<div class="terkoz">
+			<h1 id="cim">Rakott Krumpli</h1>
+		</div>
+		<div class="terkoz">
+			<p>A rakott krumplit rengetegen szeretjük, de azért sokan
+				ódzkodunk attól, hogy otthon elkészítsük. Pedig ebből a receptből is
+				kiderül, hogy rettentően egyszerűen elkészíthető annak ellenére,
+				hogy kicsit időigényes művelet.</p>
+		</div>
+		<div id="kepdiv" class="terkoz">
+			<img class="kep" src="rakottkrumpli.jpg" alt="Rakott Krumpli">
+		</div>
+		<div class="terkoz">
+			<table>
+				<tr>
+					<th>Hozzávaló:</th>
+					<th>Mennyiség:</th>
+				</tr>
+				<tr>
+					<td>burgonya</td>
+					<td>4 db</td>
+				</tr>
+				<tr>
+					<td>főtt tojás</td>
+					<td>5 db</td>
+				</tr>
+				<tr>
+					<td>kolbász</td>
+					<td>25 dkg</td>
+				</tr>
+				<tr>
+					<td>tejföl</td>
+					<td>660 g</td>
+				</tr>
+				<tr>
+					<td>sertészsír</td>
+					<td>2 ek</td>
+				</tr>
+				<tr>
+					<td>só</td>
+					<td>ízlés szerint</td>
+				</tr>
+			</table>
+		</div>
+		<fieldset class="terkoz">
+			<legend id="elkeszites">Elkészítés</legend>
+			<ol>
+				<li>Főzzük meg héjában a krumplit és a tojásokat is. Mindkét
+					alapanyag ha megfőtt, pucoljuk meg, és vágjuk őket szeletekre.</li>
+				<li>Míg a krumpli és tojás fő, addig vágjuk fel a kolbászt is
+					karikákra.</li>
+				<li>A zsírt olvasszuk meg, keverjük bele a tejfölt, és picit
+					sózzuk meg, majd egy nagy tepsi alját ezzel kenjük ki. Karikázzuk
+					fel a tojásokat és a krumplit.</li>
+				<li>Első rétegnek a burgonya jöjjön, amit ha lepakoltunk,
+					locsoljunk meg a zsíros tejföllel. Erre jöhet a tojás, amit
+					ugyancsak zárásként locsoljunk meg. Majd a kolbászokat is rakjuk le
+					egy rétegben, és zárásként a maradék burgonyát.</li>
+				<li>A maradék tejföllel locsoljuk meg az egészet, nem baj, ha
+					kicsit "tocsog" a tejfölben a rakott krumpli, másnap annál jobb
+					lesz.</li>
+				<li>A tepsit tegyük 200 fokra előmelegített sütőbe, és 1 órán
+					át süssük a krumplit. Ha kész, vegyük ki, egy picit pihentessük,
+					aztán már fogyaszthatjuk is!</li>
+			</ol>
+		</fieldset>
+		<div id="gomb" class="terkoz">
+			<button onclick="logTitle()">Cím kiírása</button>
+		</div>
+		<script>
+			function logTitle() {
+				console.log(document.getElementById("cim").innerHTML);
+			}
+		</script>
+	</div>
+</body>
+</html>
