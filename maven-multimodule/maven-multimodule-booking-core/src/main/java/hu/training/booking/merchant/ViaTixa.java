@@ -1,11 +1,15 @@
 package hu.training.booking.merchant;
 
+import hu.training.ticketing.Ticket;
+
 public class ViaTixa extends Merchant{
 
 	@Override
-	void bookTicket(String ticketId) {
-		System.out.println("Your ticketID's number is " + ticketId + ", supported by Tixa.");
+	public void printMessage(Ticket ticket) {
+		System.out.println("Your ticket is " + ticket + ", supported by Tixa.");
 		
 	}
+
+	
 
 }

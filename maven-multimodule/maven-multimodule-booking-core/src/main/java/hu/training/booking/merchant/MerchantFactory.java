@@ -4,7 +4,7 @@ import hu.training.types.MerchantType;
 
 public class MerchantFactory {
 
-	Merchant getMerchant(MerchantType merchantType) {
+	public static Merchant getMerchant(MerchantType merchantType) {
 		switch (merchantType) {
 		case OPORT:
 			return new ViaOport();

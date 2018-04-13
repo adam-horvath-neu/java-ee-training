@@ -8,9 +8,11 @@ body {
 div {
 	background-color: yellow;
 	padding: 0.7%;
+	width: 70%;
 }
 
 img {
+	align-items: center;
 	width: 50%;
 	height: 50%;
 	border-style: solid;

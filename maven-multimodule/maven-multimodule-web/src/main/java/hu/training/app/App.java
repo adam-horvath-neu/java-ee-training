@@ -35,7 +35,7 @@ public class App {
 			MerchantType merchantType = MerchantType.valueOf(merchant);
 			PaymentType paymentType = PaymentType.valueOf(payment);
 			
-			System.out.println(ServiceLocator.getBookingServiceManager().bookTicket(ticketId, merchantType, paymentType));
+			ServiceLocator.getBookingServiceManager().bookTicket(ticketId, merchantType, paymentType);
 			
 		} else {
 			System.out.println("Failed to login.");

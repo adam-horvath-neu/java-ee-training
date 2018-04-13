@@ -1,10 +1,13 @@
 package hu.training.booking.merchant;
 
-public class ViaOport extends Merchant{
+import hu.training.ticketing.Ticket;
+
+public class ViaOport extends Merchant {
 
 	@Override
-	void bookTicket(String ticketId) {
-		System.out.println("Your ticketID's number is " + ticketId + ", supported by Oport.");
+	public void printMessage(Ticket ticket) {
+		System.out.println("Your ticket is " + ticket + ", supported by Oport.");
+
 	}
 
 }
