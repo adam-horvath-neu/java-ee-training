@@ -1,10 +1,11 @@
 package Payment;
 
-public class CreditCard extends Payment {
+public class CreditCard implements PaymentStrategy {
 
-	@Override
- public	void pay(int amount) {
-		System.out.println("Amount" + amount);
+	public void pay(int amount) {
+		System.out.println("Amount paid by credit card = " + amount);
 		
 	}
-}
+		
+	}
+

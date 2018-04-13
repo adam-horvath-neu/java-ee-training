@@ -4,8 +4,8 @@ import java.util.Collection;
 
 import Merchant.Merchant;
 import Merchant.MerchantFactory;
-import Payment.Payment;
 import Payment.PaymentFactory;
+import Payment.PaymentStrategy;
 import hu.training.ticket.MerchantEnum.MerchantType;
 import hu.training.ticket.PaymentEnum.PymentType;
 import hu.training.ticket.Ticket;
@@ -18,18 +18,22 @@ public class BookingServiceImpl  implements BookingService  {
 		  MerchantFactory merchantFactory = new MerchantFactory();
 		  Merchant merchant = merchantFactory.getMerchant(merchantType);
 		  
+		
+		  
 		  PaymentFactory paymentFactory = new PaymentFactory();
 		  
-		  Payment payment = paymentFactory.getPayment(paymentType);
+		  PaymentStrategy payment = paymentFactory.getPayment(paymentType);
 		  
+		 
 		  merchant.setPaymentMode(payment);
 		  
-		  Ticket ticket = merchant.bookTicket(id);
+		  Ticket ticket = TicketMock.getTicketById(id);
 		  
-		
-		  
+		  merchant.printMessage();
+		   
+		  System.out.println(ticket);
 		  return ticket;
-		
+		  
 		
 	}
 	

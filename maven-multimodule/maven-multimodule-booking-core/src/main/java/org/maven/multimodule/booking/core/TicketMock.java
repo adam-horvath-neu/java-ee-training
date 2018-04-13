@@ -24,4 +24,14 @@ public class TicketMock {
 		 return ticket;
 	 }
 	 
+	  public static Ticket getTicketById(String Id) {
+		  
+		  for(Ticket item: ticket) {
+			  if(item.getId().equals(Id)) {
+				  return item;
+			  }
+		  }
+		  return null;
+	  }
+	 
 }

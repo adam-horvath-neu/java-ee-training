@@ -1,13 +1,11 @@
 package Merchant;
 
-import hu.training.ticket.Ticket;
-
 public class Tixa extends Merchant {
 
-	@Override
- public	Ticket bookTicket(String ticketId) {
-		System.out.println("TicketId" + ticketId);
-		return null;
+@Override
+	public void printMessage() {
+	System.out.println("Your payment is successful. Thank you for booking tickets with Tixa and hope to see you again!!!");		
 		
-	}
+	}	
+ 
 }

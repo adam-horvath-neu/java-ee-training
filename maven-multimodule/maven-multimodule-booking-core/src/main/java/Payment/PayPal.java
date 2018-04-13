@@ -1,11 +1,11 @@
 package Payment;
 
-public class PayPal extends Payment {
+public class PayPal implements PaymentStrategy {
 
-	@Override
-public	void pay(int amount) {
-		System.out.println("Amount" + amount);
+	public void pay(int amount) {
+		System.out.println("Amount paid by paypal gateway = " + amount);
+	}
 		
 	}
 	
-}
+

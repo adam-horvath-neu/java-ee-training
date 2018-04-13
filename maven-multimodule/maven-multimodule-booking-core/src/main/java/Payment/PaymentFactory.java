@@ -4,7 +4,7 @@ import hu.training.ticket.PaymentEnum.PymentType;
 
 public class PaymentFactory {
       
- public	Payment getPayment (PymentType type) {
+ public	PaymentStrategy getPayment (PymentType type) {
 		
 		switch(type) {
 		

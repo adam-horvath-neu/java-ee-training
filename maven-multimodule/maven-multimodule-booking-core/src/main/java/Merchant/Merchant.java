@@ -1,41 +1,39 @@
 package Merchant;
 
-import java.util.Collection;
 
-import org.maven.multimodule.booking.core.TicketMock;
 
-import Payment.Payment;
-import hu.training.ticket.Ticket;
+import Payment.Cash;
 
+import Payment.PaymentStrategy;
+
+/**
+ * The Merchant client make use of use of an encapsulated family of algorithms for payment using PaymentStrategy interface
+ * 
+ * @author Janos Pelsoczi
+ * 
+ */
 public abstract class Merchant {
+
+	private PaymentStrategy paymentMode;
+
+	// By default make payment mode by cash 
+	public Merchant() {
+		paymentMode = new Cash();
+	}
 	
-	private Payment paymentMode;
-	private Ticket tickets;
-
-
-public void setPaymentMode(Payment paymentMode) {
+	
+	// Allow to set behavior dynamically
+	public void setPaymentMode(PaymentStrategy paymentMode) {
 		this.paymentMode = paymentMode;
 	}
 
-public Ticket bookTicket (String ticketId) {
-	
-   tickets = null;
-   int cost = 0;
-   Collection <Ticket> ticket = TicketMock.geTickets();
-   
-   for(Ticket item: ticket ) {
-	   if(item.getId().equals(ticketId)) {
-		   item = tickets;
-		   cost = item.getCost();
-	   }
-	   paymentMode.pay(cost); 
-	 System.out.println(tickets.toString());
+	// Delegate to the behavior class
+	public void pay(int amount) {
+		paymentMode.pay(amount);
+		printMessage();
+		System.out.println("---");
+	}
 
-   }
- 
-return tickets;
- 
-    
-   
- 
- }}
+	// Each merchant can display different message
+	public abstract void printMessage();
+}
