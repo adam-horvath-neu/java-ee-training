@@ -8,6 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>maven-multimodule-booking-core</artifactId>
+	
 	<dependencies>
 		<dependency>
 			<groupId>hu.training</groupId>
@@ -15,4 +16,5 @@
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
+	
 </project>

@@ -6,11 +6,4 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>maven-multimodule-booking-api</artifactId>
-  <dependencies>
-		<dependency>
-			<groupId>hu.training</groupId>
-			<artifactId>maven-multimodule-booking-api</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-	</dependencies>
 </project>

@@ -1,11 +1,12 @@
-package hu.training.factories.payment;
+package hu.training.PaymentStrategy;
 
-import hu.training.payment.PaymentType;
+import hu.training.bookingservice.PaymentType;
 
 public class PaymentFactory {
-
-	public Payment paymentType(PaymentType paymentType) {
-		switch (paymentType) {
+	
+	public static PaymentStrategy getPaymentType(PaymentType paymentType) {
+		
+		switch(paymentType) {
 		case CASH:
 			return new PayViaCash();
 		case CREDITCARD:
@@ -15,6 +16,7 @@ public class PaymentFactory {
 		default:
 			throw new IllegalArgumentException();
 		}
+		
 	}
 
 }

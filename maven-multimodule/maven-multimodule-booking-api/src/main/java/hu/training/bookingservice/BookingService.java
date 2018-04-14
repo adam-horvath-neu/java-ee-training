@@ -1,14 +1,13 @@
-package hu.training.booking;
+package hu.training.bookingservice;
 
 import java.util.Collection;
 
-import hu.training.merchant.MerchantType;
-import hu.training.payment.PaymentType;
-import hu.training.ticketbuilder.Ticket;
+import hu.training.ticket.Ticket;
 
 public interface BookingService {
 	
 	Collection<Ticket> getTickets();
+	
 	Ticket bookTicket(String id, MerchantType merchantType, PaymentType paymentType);
 
 }

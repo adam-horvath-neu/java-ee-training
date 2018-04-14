@@ -1,38 +1,42 @@
-package hu.training.ticketbuilder;
+package hu.training.ticket;
 
 public class Ticket {
 	
 	private String id;
 	private String eventName;
 	private int cost;
+	
 	public Ticket(String id, String eventName, int cost) {
 		super();
 		this.id = id;
 		this.eventName = eventName;
 		this.cost = cost;
 	}
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getEventName() {
 		return eventName;
 	}
+
 	public void setEventName(String eventName) {
 		this.eventName = eventName;
 	}
+
 	public int getCost() {
 		return cost;
 	}
+
 	public void setCost(int cost) {
 		this.cost = cost;
 	}
-	@Override
-	public String toString() {
-		return "Ticket [id=" + id + ", eventName=" + eventName + ", cost=" + cost + "]";
-	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -42,6 +46,7 @@ public class Ticket {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -64,6 +69,11 @@ public class Ticket {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Ticket [id=" + id + ", eventName=" + eventName + ", cost=" + cost + "]";
 	}
 
 }

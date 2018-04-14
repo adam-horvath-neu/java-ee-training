@@ -10,10 +10,13 @@ public class UsersMock {
 	private final static Collection<User> users;
 
 	static {
-		users = Arrays.asList(
-				new User[] { new User("Bela", "jelszo"), new User("Istvan", "jelszo"), new User("Zoli", "pass"), });
+		users = Arrays.asList(new User[] {
+				new User("Bela", "jelszo"),
+				new User("Istvan", "jelszo"),
+				new User("Zoli", "jelszo")
+		});
 	}
-
+	
 	public static Collection<User> getUsers() {
 		return users;
 	}
