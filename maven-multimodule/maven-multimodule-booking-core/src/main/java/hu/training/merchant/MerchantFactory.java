@@ -4,7 +4,7 @@ import hu.training.bookingservice.MerchantType;
 
 public class MerchantFactory {
 
-	public Merchant getMerchantType(MerchantType merchantType) {
+	public static Merchant getMerchantType(MerchantType merchantType) {
 		
 		switch(merchantType) {
 		case TICKETEXPRESS:

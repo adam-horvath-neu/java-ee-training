@@ -17,26 +17,11 @@ public class BaseBookingService implements BookingService {
 
 	public Ticket bookTicket(String id, MerchantType merchantType, PaymentType paymentType) {
 
-		MerchantFactory merchantFactory = new MerchantFactory();
-		Merchant merchant = merchantFactory.getMerchantType(merchantType);
+		Merchant merchant = MerchantFactory.getMerchantType(merchantType);
+		merchant.setPaymentMode(PaymentFactory.getPaymentType(paymentType));
 
-		PaymentFactory paymentFactory = new PaymentFactory();
-		PaymentStrategy paymentStrategy = paymentFactory.getPaymentType(paymentType);
-
-		Ticket ticket = null;
-
-		for (Ticket mock : TicketMock.getTickets()) {
-			if (mock.getId().contentEquals(id)) {
-				ticket = mock;
-			}
-		}
-		if (ticket.equals(null)) {
-			System.out.println("Not valid ticket");
-		} else {
-			merchant.bookTicket(ticket.getId());
-			paymentStrategy.pay(ticket.getCost());
-		}
-		return ticket;
+		Ticket bookedTicket= merchant.bookedTicket(id);
+		return bookedTicket;
 	}
 
 }
