@@ -32,6 +32,7 @@ public abstract class Merchant {
 
 			}
 		}
+		printMessage(new Ticket(id, eventName, amount));
 		paymentMode.pay(amount);
 		
 		
@@ -42,8 +43,7 @@ public abstract class Merchant {
 		return new Ticket(id, eventName, amount);
 
 	}
-
-
-
+	public abstract void printMessage(Ticket ticket); 
 
 }
+

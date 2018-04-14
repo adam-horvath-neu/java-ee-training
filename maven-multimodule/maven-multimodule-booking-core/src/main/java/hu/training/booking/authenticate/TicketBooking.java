@@ -6,8 +6,7 @@ import hu.training.booking.BookingService;
 import hu.training.booking.Ticket;
 import hu.training.booking.facstr.MerchantFactory;
 import hu.training.booking.facstr.PaymentFactory;
-import hu.training.booking.merchants.TicketMerchant;
-import hu.training.booking.print.Printer;
+import hu.training.booking.merchants.Merchant;
 import hu.training.booking.types.MerchantType;
 import hu.training.booking.types.PaymentType;
 import hu.trainingő.booking.mock.TicketMock;
@@ -20,15 +19,12 @@ public class TicketBooking implements BookingService {
 
 	public Ticket bookTicket(String id, MerchantType mType, PaymentType pType) {
 
-		MerchantFactory merchant = new MerchantFactory();
-		Printer print = merchant.getMerchantTypes(mType);
-		print.printMessage();
-
-		PaymentFactory payment = new PaymentFactory();
-		TicketMerchant setPay = new TicketMerchant();
-		setPay.setPaymentMode(payment.getPaymentTypes(pType));
-
-		return setPay.bookTicket(id);
+		Merchant merchant = MerchantFactory.getMerchantTypes(mType);
+		merchant.setPaymentMode(PaymentFactory.getPaymentTypes(pType));
+		
+		Ticket tick = merchant.bookTicket(id);
+		
+		return tick;
 
 	}
 

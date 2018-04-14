@@ -1,13 +1,18 @@
 package hu.training.booking.mtypes;
 
-import hu.training.booking.print.Printer;
+import hu.training.booking.Ticket;
+import hu.training.booking.merchants.Merchant;
 
-public class SzallasHU implements Printer {
+public class SzallasHU extends Merchant {
 
-	public void printMessage() {
+	
+	@Override
+	public void printMessage(Ticket ticket) {
 		System.out.println("Your payment is successful. Thank you for choosen us, SzallasHU");
 		
 	}
+
+	
 
 	
 	
