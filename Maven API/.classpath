@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="maven-multimodule/maven-multimodule-api/src/main/java"/>
+	<classpathentry kind="src" path="maven-multimodule/maven-multimodule-booking-api/src/main/java"/>
+	<classpathentry kind="src" path="maven-multimodule/maven-multimodule-booking-core/src/main/java"/>
+	<classpathentry kind="src" path="maven-multimodule/maven-multimodule-core/src/main/java"/>
+	<classpathentry kind="src" path="maven-multimodule/maven-multimodule-web/src/main/java"/>
+	<classpathentry kind="lib" path="maven-multimodule/maven-multimodule-api/target/maven-multimodule-api-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="maven-multimodule/maven-multimodule-booking-api/target/maven-multimodule-booking-api-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="maven-multimodule/maven-multimodule-booking-core/target/maven-multimodule-booking-core-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="maven-multimodule/maven-multimodule-core/target/maven-multimodule-core-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="maven-multimodule/maven-multimodule-web/target/maven-multimodule-web-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="output" path="maven-multimodule/maven-multimodule-api/target/classes"/>
+</classpath>
