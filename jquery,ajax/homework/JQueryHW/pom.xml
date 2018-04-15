@@ -3,12 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>hu.training.java</groupId>
-	<artifactId>widget-web</artifactId>
+	<artifactId>JQueryHW</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1</version>
-	<name>web Maven Webapp</name>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>JQueryHW Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -39,7 +38,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>WebApp</finalName>
+		<finalName>JQueryHW</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
