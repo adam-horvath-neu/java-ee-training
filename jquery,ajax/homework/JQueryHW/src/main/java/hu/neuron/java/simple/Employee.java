@@ -1,11 +1,20 @@
 package hu.neuron.java.simple;
 
-public class Employee {
+import java.io.Serializable;
 
+public class Employee implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String name;
 	private String age;
 	private String job;
+	
+
+
 	public int getId() {
 		return id;
 	}
@@ -29,6 +38,10 @@ public class Employee {
 	}
 	public void setJob(String job) {
 		this.job = job;
+	}
+	
+	public Employee(){
+		
 	}
 	public Employee(int id, String name, String age, String job) {
 		super();

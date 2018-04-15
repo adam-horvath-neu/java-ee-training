@@ -47,7 +47,9 @@ public class DataServlet extends HttpServlet {
 			String name = request.getParameter("name");
 			String age = request.getParameter("age");
 			String job = request.getParameter("job");
-			db.add(new Employee(id, name, age, job));			
+			
+			db.add(new Employee(id, name, age, job));	
+			
 		}
 
 	}
