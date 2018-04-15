@@ -1,0 +1,16 @@
+@charset "UTF-8";
+body {
+	margin: 0px;
+}
+
+.login {
+	width: 30%;
+	margin: 0 auto;
+}
+
+.success {
+	color: green;
+}
+.failed {
+	color: red;
+}

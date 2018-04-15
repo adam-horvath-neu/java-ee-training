@@ -4,7 +4,6 @@ import java.util.Collection;
 
 import hu.training.booking.payment.Payment;
 import hu.training.booking.ticket.BookingServiceManager;
-import hu.training.booking.ticket.TicketsMock;
 import hu.training.ticketing.Ticket;
 
 public abstract class Merchant {
