@@ -2,13 +2,12 @@ package hu.training.app;
 
 import java.util.Collection;
 import java.util.Scanner;
-
-import hu.training.booking.Booking;
-import hu.training.booking.TicketMock;
 import hu.training.login.LoginBean;
 import hu.training.ticket.MerchantType;
 import hu.training.ticket.PaymentType;
 import hu.training.ticket.Ticket;
+import hu.training.ticket.booking.Booking;
+import hu.training.ticket.booking.TicketMock;
 
 public class App {
 

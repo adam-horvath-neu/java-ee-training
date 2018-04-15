@@ -1,6 +1,6 @@
 package hu.training.ticket.merchants;
 
-import hu.training.ticket.Merchant;
+import hu.training.ticket.booking.Merchant;
 
 public class Vouchers extends Merchant {
 

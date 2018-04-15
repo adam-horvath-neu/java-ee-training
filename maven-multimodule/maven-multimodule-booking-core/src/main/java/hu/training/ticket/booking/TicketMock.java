@@ -1,4 +1,4 @@
-package hu.training.booking;
+package hu.training.ticket.booking;
 
 import java.util.Arrays;
 import java.util.Collection;

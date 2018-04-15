@@ -1,9 +1,8 @@
-package hu.training.booking;
+package hu.training.ticket.booking;
 
 import java.util.Collection;
 
 import hu.training.ticket.BookingService;
-import hu.training.ticket.Merchant;
 import hu.training.ticket.MerchantType;
 import hu.training.ticket.PaymentStrategy;
 import hu.training.ticket.PaymentType;

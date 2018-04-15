@@ -1,7 +1,9 @@
-package hu.training.ticket;
+package hu.training.ticket.booking;
 
 import java.util.Collection;
 
+import hu.training.ticket.PaymentStrategy;
+import hu.training.ticket.Ticket;
 import hu.training.ticket.paymentclasses.PayByCash;
 
 public abstract class Merchant {

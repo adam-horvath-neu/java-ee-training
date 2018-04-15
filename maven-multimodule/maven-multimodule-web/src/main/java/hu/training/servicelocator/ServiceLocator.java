@@ -3,8 +3,8 @@ package hu.training.servicelocator;
 import hu.training.authenticator.Authenticator;
 import hu.training.authenticator.DBAuthenticator;
 import hu.training.authenticator.LDAPAuthenticator;
-import hu.training.booking.Booking;
 import hu.training.ticket.BookingService;
+import hu.training.ticket.booking.Booking;
 
 public class ServiceLocator {
 

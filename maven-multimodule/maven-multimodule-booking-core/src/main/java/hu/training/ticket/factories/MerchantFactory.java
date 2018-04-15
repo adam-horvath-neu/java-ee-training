@@ -1,7 +1,7 @@
 package hu.training.ticket.factories;
 
-import hu.training.ticket.Merchant;
 import hu.training.ticket.MerchantType;
+import hu.training.ticket.booking.Merchant;
 import hu.training.ticket.merchants.BestBuy;
 import hu.training.ticket.merchants.ShopOnline;
 import hu.training.ticket.merchants.Vouchers;
