@@ -67,9 +67,9 @@ select {
 			}, {
 				"data" : "name"
 			}, {
-				"data" : "role"
+				"data" : "age"
 			}, {
-				"data" : "date"
+				"data" : "job"
 			}
 
 			]
@@ -101,8 +101,8 @@ select {
 						data : {
 							op : 'add',
 							name : $('#name').val(),
-							role : $('#role').val(),
-							date : $('#date').val(),
+							age : $('#age').val(),
+							job : $('#job').val(),
 						},
 						success : function(data) {
 							$("#dialog").dialog("close");
@@ -119,93 +119,7 @@ select {
 					$(this).dialog("close");
 				}
 			} ]
-		});
-
-		$("#dialog-link").click(function(event) {
-			$("#dialog").dialog("open");
-			$("#date").datepicker({
-				dateFormat : "yy.mm.dd"
-			});
-			event.preventDefault();
-		});
-
-		$("#delete").click(function(event) {
-
-			var id = $($('#example tr.selected td')[0]).html();
-
-			$.ajax({
-				url : 'DataServlet',
-				data : {
-					op : 'del',
-					id : id,
-
-				},
-				success : function(data) {
-					$("#udialog").dialog("close");
-					$('#example').dataTable().fnDestroy();
-					create();
-				},
-				dataType : "html"
-			});
-
-		});
-
-		
-		
-		$("#udialog").dialog({
-			autoOpen : false,
-			width : 400,
-			buttons : [ {
-				text : "Update",
-				click : function() {
-					$.ajax({
-						url : 'DataServlet',
-						data : {
-							op : 'update',
-							id : $('#id').val(),
-							name : $('#uname').val(),
-							role : $('#urole').val(),
-							date : $('#udate').val(),
-						},
-						success : function(data) {
-							$("#udialog").dialog("close");
-							$('#example').dataTable().fnDestroy();
-							create();
-						},
-						dataType : "html"
-					});
-
-				}
-			}, {
-				text : "Cancel",
-				click : function() {
-					$(this).dialog("close");
-				}
-			} ]
-		});
-
-		
-		$("#update").click(function(event) {
-			$("#udialog").dialog("open");
-			var cells = $('#example tr.selected td');
-			var id = $(cells[0]).html();
-			var name = $(cells[1]).html();
-			var role = $(cells[2]).html();
-			var date = $(cells[3]).html();
-			 var pdate  =new Date(date);
-			$('#uname').val(name);
-			$('#urole').val(role);
-			$('#udate').val(pdate.getFullYear() +'.'+ pdate.getMonth() + '.' + pdate.getDate()   );
-			$('#id').val(id);
-			
-			$("#udate").datepicker({
-				dateFormat : "yy.mm.dd"
-			});
-			
-// 			$("#udate").datepicker( "setDate", $('#udate').val(date) );
-			event.preventDefault();
-		});
-
+		});	
 	});
 </script>
 
@@ -224,8 +138,8 @@ select {
 									<tr>
 										<th>ID</th>
 										<th>Name</th>
-										<th>Role</th>
-										<th>Date</th>
+										<th>Age</th>
+										<th>Job</th>
 
 									</tr>
 								</thead>
@@ -238,12 +152,6 @@ select {
 							class="ui-state-default ui-corner-all"><span
 								class="ui-icon ui-icon-newwin"></span>Add</a>
 						<td><td>
-						<a href="#" id="delete"
-							class="ui-state-default ui-corner-all"><span
-								class="ui-icon ui-icon-newwin"></span>Delete</a><td>
-						<td><a href="#" id="update"
-							class="ui-state-default ui-corner-all"><span
-								class="ui-icon ui-icon-newwin"></span>Update</a>
 						<td>
 					</tr>
 				</table>
@@ -259,12 +167,12 @@ select {
 				<td><input id="name" type="text"></td>
 			</tr>
 			<tr>
-				<td>Role</td>
-				<td><input id="role" type="text"></td>
+				<td>Age</td>
+				<td><input id="age" type="text"></td>
 			</tr>
 			<tr>
-				<td>Date</td>
-				<td><input id="date" type="text"></td>
+				<td>Job</td>
+				<td><input id="job" type="text"></td>
 			</tr>
 
 		</table>
@@ -279,12 +187,12 @@ select {
 				<td><input id="uname" type="text"></td>
 			</tr>
 			<tr>
-				<td>Role</td>
-				<td><input id="urole" type="text"></td>
+				<td>Age</td>
+				<td><input id="uage" type="text"></td>
 			</tr>
 			<tr>
-				<td>Date</td>
-				<td><input id="udate" type="text"></td>
+				<td>Job</td>
+				<td><input id="ujob" type="text"></td>
 			</tr>
 
 		</table>
