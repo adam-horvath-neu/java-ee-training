@@ -131,13 +131,14 @@ select {
 				text : "Update",
 				click : function() {
 					$.ajax({
+						type : "POST",
 						url : 'DataServlet',
 						data : {
 							op : 'update',
 							id : $('#id').val(),
 							name : $('#uname').val(),
-							role : $('#urole').val(),
-							date : $('#udate').val(),
+							age : $('#uage').val(),
+							job : $('#ujob').val(),
 						},
 						success : function(data) {
 							$("#udialog").dialog("close");
@@ -207,7 +208,7 @@ select {
 			</tr>
 			<tr>
 				<td>Job</td>
-				<td><input id="Job" type="text"></td>
+				<td><input id="job" type="text"></td>
 			</tr>
 
 		</table>

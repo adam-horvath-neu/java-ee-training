@@ -34,7 +34,6 @@ public class DataServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String op = request.getParameter("op");
-//		HashMap<Long, Data> db = DbMock.getDb();
 		Collection<Employee> db = EmployeeMock.getEmployees();
 		if (op.equals("get")) {
 
@@ -47,11 +46,10 @@ public class DataServlet extends HttpServlet {
 			String name = request.getParameter("name");
 			String age = request.getParameter("age");
 			String job = request.getParameter("job");
-			
-			db.add(new Employee(id, name, age, job));	
-			
-		}
 
+			db.add(new Employee(id, name, age, job));
+
+		}
 	}
 
 	/**
@@ -60,6 +58,7 @@ public class DataServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		doGet(request, response);
 	}
 
