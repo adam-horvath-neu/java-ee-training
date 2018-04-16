@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+body {
+	background-color: #003333
+}
+
+.container {
+	background-color: #ccccff;
+	font-family: Times New Roman, Arial;
+	width: 70%;
+	margin: auto;
+}
+
+#content {
+	padding: 1%;
+}
+
+#recipe-title {
+	text-align: center;
+	text-decoration: underline;
+	font-size: 4em;
+}
+
+.description {
+	text-align: justify;
+	font-size: 1.2em;
+}
+
+.picture img {
+	width: 80%;
+	height: 80%;
+	display: block;
+	margin: auto;
+	border: 2px solid black;
+	margin-top: 1%;
+	display: block;
+}
+
+table, td, th {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+	background-color: #0099cc;
+}
+.ingredients{
+	margin-top: 1%;
+}
+.ingredients table{
+	width: 80%;
+	font-size: 1.1em;
+	margin: auto;
+}
+
+.how-to{
+	width: 80%;
+	margin: auto;
+}
+
+.btn{
+	background-color: transparent;
+	border: 2px solid #05AE0E;
+	font-size: 1.2em;
+	margin: 0.5% 0 0.5% 0;
+	cursor: pointer;
+	color: #05AE0E;
+}
+
+.btn:hover{
+	color: green;
+	border-color: green;
+}
+
+.center{
+	text-align: center;
+}
