@@ -26,15 +26,18 @@ public class DataServlet extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	Collection<Employee> db = Mock.getEmployees();
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+
+		Collection<Employee> db = Mock.getEmployees();
 		String op = request.getParameter("op");
+		System.out.println(op);
 		if (op.equals("get")) {
+			
 
 			Response rv = new Response(new ArrayList<Employee>(db));
 			Gson gson = new Gson();
@@ -49,7 +52,10 @@ public class DataServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+
+		Collection<Employee> db = Mock.getEmployees();
 		String op = request.getParameter("op");
+		System.out.println(op);
 
 		if (op.equals("add")) {
 

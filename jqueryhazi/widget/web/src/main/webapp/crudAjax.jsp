@@ -9,18 +9,14 @@
 <link href="resources/datatable/css/jquery.dataTables_themeroller.css"
 	rel="stylesheet">
 <style>
-
-
 .demoHeaders {
 	margin-top: 2em;
 }
-
 a{
 	padding: .4em 1em .4em 20px;
 	text-decoration: none;
 	position: relative;
 }
-
 a span.ui-icon {
 	margin: 0 5px 0 0;
 	position: absolute;
@@ -28,12 +24,10 @@ a span.ui-icon {
 	top: 50%;
 	margin-top: -8px;
 }
-
 #icons {
 	margin: 0;
 	padding: 0;
 }
-
 #icons li {
 	margin: 2px;
 	position: relative;
@@ -42,16 +36,13 @@ a span.ui-icon {
 	float: left;
 	list-style: none;
 }
-
 #icons span.ui-icon {
 	float: left;
 	margin: 0 4px;
 }
-
 .fakewindowcontain .ui-widget-overlay {
 	position: absolute;
 }
-
 select {
 	width: 200px;
 }
