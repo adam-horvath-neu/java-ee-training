@@ -20,6 +20,8 @@
 
 <!-- Custom styles for this template -->
 <link href="<c:url value="/resources/css/signin.css"/>" rel="stylesheet">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../resources/js/registrationValidate.js"></script>
 
 <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -85,7 +87,7 @@
 
 			</form>
 		</div>
-
+	<h5></h5>
 	</div>
 	<!-- /container -->
 

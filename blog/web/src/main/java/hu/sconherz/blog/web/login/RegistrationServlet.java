@@ -60,74 +60,97 @@ public class RegistrationServlet extends HttpServlet {
 		try {
 			user = userService.findUserByName(username);
 		} catch (UserNotFoundException e) {
+			//
 		}
 
 		if (user != null) { // Létezik ilyen felhasználó
-
 			request.setAttribute("error", "Ilyen felhasználónév már létezik!");
 			request.getRequestDispatcher(REGISTRATION_JSP_URL).forward(request, response);
 
-		} else {
+		} else {	// Ha nem létezik hozzuk létre
+			
 			User newUser = new User();
-
+			
+			//Username validation
 			Login login = new Login();
 			if (registrationForm.getUsername().length() <= 31) {
 				login.setUsername(registrationForm.getUsername());
 			} else {
 				request.setAttribute("error", "Username max 30 karakter");
 				request.getRequestDispatcher(REGISTRATION_JSP_URL).forward(request, response);
+				return;
 			}
-
-			Pattern p = Pattern.compile(".*+\\d++.*+"); 		// NOT GOOD
-			Matcher m = p.matcher(registrationForm.getPassword());
-			boolean b = m.matches();
+			
+			//Password validation
+			Pattern passwordPattern = Pattern.compile("(.*)(\\d+)(.*)"); 
+			Matcher passwordMatcher = passwordPattern.matcher(registrationForm.getPassword());
+			boolean passwordValid = passwordMatcher.matches();
 			if (registrationForm.getPassword().length() <= 8
-					&& registrationForm.getPassword().equals(registrationForm.getPassword2()) && b) {
+					&& registrationForm.getPassword().equals(registrationForm.getPassword2()) 
+					&& passwordValid) {
 				login.setPassword(registrationForm.getPassword());
 			} else {
 				request.setAttribute("error", "Jelszó max 8 karakter, azonosak, 1 szám legyen!");
 				request.getRequestDispatcher(REGISTRATION_JSP_URL).forward(request, response);
+				return;
 			}
+			//Set username and password
 			newUser.setLogin(login);
-
+			
+			//FirstName validation
 			Name name = new Name();
 			if (registrationForm.getFirstName().length() <= 30) {
 				name.setFirst(registrationForm.getFirstName());
 			} else {
 				request.setAttribute("error", "First name max 30 karakter legyen!");
 				request.getRequestDispatcher(REGISTRATION_JSP_URL).forward(request, response);
+				return;
 			}
 			
+			//LastName validation
 			if (registrationForm.getLastName().length() <= 30) {
 				name.setLast(registrationForm.getLastName());
 			} else {
 				request.setAttribute("error", "Last name max 30 karakter legyen!");
 				request.getRequestDispatcher(REGISTRATION_JSP_URL).forward(request, response);
+				return;
 			}
+			//Set firs and last name
 			newUser.setName(name);
 
-			if (registrationForm.getEmail().contains("@") && registrationForm.getEmail().contains(".")) {
+			//Email validation
+			Pattern emailPattern = Pattern.compile("(.+)(@)(.+)(\\.)(.+)"); 
+			Matcher emailMatcher = emailPattern.matcher(registrationForm.getEmail());
+			boolean emailValid = emailMatcher.matches();
+			if (emailValid) {
 				newUser.setEmail(registrationForm.getEmail());
 			} else {
 				request.setAttribute("error", "Helyesen add meg az emailcímet!");
 				request.getRequestDispatcher(REGISTRATION_JSP_URL).forward(request, response);
+				return;
 			}
 			
-			if (registrationForm.getPhone() != "a") {
-				newUser.setPhone(registrationForm.getPhone());	//NEM JÓ
+			//Phone number validation
+			Pattern phonePattern = Pattern.compile("(\\+)(\\d{2})(-)(\\d{2})(/)(\\d{4})(-)(\\d{3})"); 
+			Matcher phoneMatcher = phonePattern.matcher(registrationForm.getPhone());
+			boolean phoneValid = phoneMatcher.matches();
+			if (phoneValid) {
+				newUser.setPhone(registrationForm.getPhone());
 			} else {
-				request.setAttribute("error", "Helyesen add meg a telefonszámod!");
+				request.setAttribute("error", "Helyesen add meg a telefonszámod!\nPl: +36-30/1234-567");
 				request.getRequestDispatcher(REGISTRATION_JSP_URL).forward(request, response);
+				return;
 			}
-
+			
+			//No validation here, init Picture
 			Picture picture = new Picture();
 			picture.setLarge(registrationForm.getPicture());
 			newUser.setPicture(picture);
-
+			
+			//Create the new User
 			userService.registrationUser(newUser);
 
-			request.setAttribute("error", "Sikeres regisztráció!");
-			request.getRequestDispatcher(LOGIN_JSP_URL).forward(request, response);
+			response.sendRedirect(LOGIN_JSP_URL);
 		}
 	}
 
