@@ -30,10 +30,10 @@ public class App {
 			System.out.println("Choose a merchant (ELADO_JEGYEK, JEGYMESTER, TICKETHING)");
 			MerchantType merchantType = MerchantType.valueOf(scanner.nextLine());
 			
-			System.out.println("Choose a payment mode (CASH, CREDIT_CARD, PAYPAL");
+			System.out.println("Choose a payment mode (CASH, CREDIT_CARD, PAYPAL)");
 			PaymentType paymentType = PaymentType.valueOf(scanner.nextLine());
 			
-			ServiceLocator.getBookingService().bookTicket(id, merchantType, paymentType);
+			System.out.println("\n" + ServiceLocator.getBookingService().bookTicket(id, merchantType, paymentType));
 		} else {
 			System.out.println("Failed to login.");
 		}
