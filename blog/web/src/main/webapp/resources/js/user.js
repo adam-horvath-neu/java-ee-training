@@ -20,8 +20,13 @@ $(document).ready(function() {
 						success: function(template) {
 							var t=	template.replace('user_name',value.name.first +' '+value.name.last);
 							t=t.replace('img_url',value.picture.large);
-							t=t.replace('city',value.location.postcode + ' ' + value.location.city);
-							t=t.replace('street',value.location.street);
+							
+							//hacked :D
+							if (value.dob){
+								t=t.replace('city',value.location.postcode + ' ' + value.location.city);
+								t=t.replace('street',value.location.street);
+							}
+							
 							t=t.replace('mail_addr',value.email);
 							t=t.replace('number', index);
 							
@@ -52,13 +57,18 @@ function handleClick(id) {
 				t = t.replace('username', value.login.username);
 				t = t.replace('password', value.login.password);
 				t = t.replace('phone', value.phone);
-				t = t.replace('dob', value.dob);
-				t = t.replace('gender', value.gender);
-				t = t.replace('registered', value.registered);
-				t = t.replace('cell', value.cell);
-				t = t.replace('location', value.location.postcode + ' '
-						+ value.location.city + ', '
-						+ value.location.street);
+				
+				//hacked :D
+				if (value.dob){
+					t = t.replace('dob', value.dob);
+					t = t.replace('gender', value.gender);
+					t = t.replace('registered', value.registered);
+					t = t.replace('cell', value.cell);
+					t = t.replace('location', value.location.postcode + ' '
+							+ value.location.city + ', '
+							+ value.location.street);
+				}
+				
 				t = t.replace('img_url', value.picture.large);
 				
 				$('#myModal').append(t);
