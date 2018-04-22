@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
 		Gson gson = new Gson();
 		ClassLoader classLoader = getClass().getClassLoader();
 		try (InputStream inputStream = classLoader.getResourceAsStream("example.txt");
-				BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));) {
+				BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));) {
 
 			result = gson.fromJson(bufferedReader, UserResult.class);
 
@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
 	 * @return
 	 */
 	public User findUserByName(String name) throws UserNotFoundException {
-	
+
 		List<User> users = result.getResults();
 		for (User user : users) {
 			if (user.getLogin().getUsername().equals(name)) {
@@ -57,6 +57,16 @@ public class UserServiceImpl implements UserService {
 			}
 		}
 		throw new UserNotFoundException();
+
+	}
+
+	@Override
+	public void registrationUser(User user) {
+		if (result == null)
+			init();
+		List<User> list = result.getResults();
+		list.add(user);
+		result.setResults(list);
 
 	}
 }

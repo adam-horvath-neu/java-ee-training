@@ -43,6 +43,9 @@
 				<c:if test="${sessionScope.user ==null}">
 					<a class="blog-nav-item" href="<c:url value="/public/login.jsp"/>">Login</a>
 				</c:if>
+				<c:if test="${sessionScope.user ==null}">
+					<a class="blog-nav-item" href="<c:url value="/public/register.jsp"/>">Register</a>
+				</c:if>
 				<c:if test="${sessionScope.user !=null}">
 					<a class="blog-nav-item" href="<c:url value="/Logout"/>">Logout</a>
 				</c:if>
