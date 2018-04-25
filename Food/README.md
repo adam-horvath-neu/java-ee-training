@@ -1,0 +1,39 @@
+﻿# Favorite Food(Html/CSS) - feladat Leírása:
+
+Ugyanúgy a saját branch-etekbe dolgozzatok, mint a Maven házinál.
+Hozz létre Eclipse-ben egy új Static Web Project-et, amiben megcsinálod a feladatot. 
+A CSS külön fájlban kapjon helyet, és hivatkozd be:
+```
+<link rel="stylesheet" type="text/css" href="valami.css">
+```
+Feladat:
+
+Készíts egy weboldalt a kedvenc ételedről. 
+Az oldal tartalmazza az oldal tetején az étel nevét, alatta egy táblázatbana hozzávalókat, majd az alatt egy paragrafusban az étel receptjét. 
+
+Elvárások:
+
+-Az oldalnak állíts be egy címet, ami megjelenik a böngésző fejlécébe. (head - title)
+-Az oldalnak legyen háttérszíne.
+-Cseréld le a betűtípust a dokumentumon belül, ha szükséges a betű színét is (a háttérszín miatt).
+-Az oldalon a tartalom egy 70% széles blokkban kapjon helyet, aminek eltérő a háttérszíne. A blokknak adj padding-ot.
+-A címhez használj valamilyen címsort (heading-et).
+-A cím alatt szerepeljen egy rövid leírás az életről.
+-A leírás alatt szerepeljen egy kép az ételről, aminek változtasd meg a méretét, illetve adj keretet (border).
+-A kép alatt szerepeljen egy táblázat, aminek az egyik oszlopában a hozzávalók nevét, a másikban a szükséges mennyiség szerepeljen.
+-Legyen fejrésze (head) a táblázatnak.
+-A táblázat minden páratlan sorát színezd át másik színűre. Ehhez használd az odd pszeudo szelektor: table tr:nth-child(even)
+-A táblazat alatt pedig egy fieldset html elemben szerepeljen az elkészítési mód. A címe (legend) legyen: Elkészítés
+-Az egymás alatt szereplő elemek (cím, kép, táblázat) között használj térköz (margin).
+
+-Írj egy javascript függvényt <script> tag-ek között, amivel kiírod a console-ra (console.log()) a címnek (heading) megadott értéket (innerHtml). 
+Ez script az oldal aljára (elkészítés fieldset alá) tett gomb megnyomására fusson le (onclick).
+```
+<button onclick="logTitle()">Cím kiírása</button>
+```
+Megjegyzés:
+
+A formázásokat minden esetben CSS segítségével végezd. 
+Nem kell túl bonyolítani a formázásokat, a fenti leírásnak feleljenek meg.
+
+Jó munkát!
