@@ -22,7 +22,9 @@ public class UserServiceImpl implements UserService {
 	private UserResult result;
 
 	public UserServiceImpl() {
-		result = init();
+		if (result == null) {
+			result = init();
+		}
 	}
 
 	@Override
@@ -62,11 +64,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void registrationUser(User user) {
-		if (result == null)
+		if (result == null) {
 			init();
-		List<User> list = result.getResults();
-		list.add(user);
-		result.setResults(list);
-
+			List<User> list = result.getResults();
+			list.add(user);
+			result.setResults(list);
+		}
 	}
 }
