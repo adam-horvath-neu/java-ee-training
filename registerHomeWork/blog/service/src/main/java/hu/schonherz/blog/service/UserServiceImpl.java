@@ -17,6 +17,8 @@ import hu.schonherz.blog.service.api.user.exception.UserNotFoundException;
 import hu.schonherz.blog.service.api.user.service.UserService;
 import hu.schonherz.blog.service.api.user.vo.User;
 import hu.schonherz.blog.service.api.user.vo.UserResult;
+import hu.tschonerz.blog.DAO.UserDAO;
+import hu.tschonerz.blog.DAO.UserDTO;
 
 public class UserServiceImpl implements UserService {
 	
@@ -32,7 +34,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> findAllUser() {
-		return result.getResults().stream().sorted(Comparator.comparing(User::getEmail)).collect(Collectors.toList());
+
+		UserDAO dao = null;
+		List<UserDTO>list = dao.findAll();
+		List<?> variable = list;
+		
+		List<User> userList =(List<User>)variable;
+		result.setResults(userList);
+		return result.getResults();
 	}
 
 	private UserResult init() {
