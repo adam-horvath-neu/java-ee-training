@@ -1,276 +1,564 @@
-<!DOCTYPE html>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<title></title>
+<jsp:include page="header.jsp"></jsp:include>
+<script src="resources/datatable/js/jquery.dataTables.js"></script>
+<link href="resources/datatable/css/jquery.dataTables_themeroller.css"
+	rel="stylesheet">
+	
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
 
 
-<title>Signin Template for Bootstrap</title>
 
-<!-- Bootstrap core CSS -->
-<link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
+.demoHeaders {
+	margin-top: 2em;
+}
 
+a{
+	padding: .4em 1em .4em 20px;
+	text-decoration: none;
+	position: relative;
+}
 
-<!-- Custom styles for this template -->
-<link href="<c:url value="/resources/css/signin.css"/>" rel="stylesheet">
+a span.ui-icon {
+	margin: 0 5px 0 0;
+	position: absolute;
+	left: .2em;
+	top: 50%;
+	margin-top: -8px;
+}
 
-<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+#icons {
+	margin: 0;
+	padding: 0;
+}
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
+#icons li {
+	margin: 2px;
+	position: relative;
+	padding: 4px 0;
+	cursor: pointer;
+	float: left;
+	list-style: none;
+}
 
-<body>
+#icons span.ui-icon {
+	float: left;
+	margin: 0 4px;
+}
 
-	<div class="container">
-		<div class="row">
-		<div class="col-sm-6 col-sm-offset-3">
-			<c:if test="${requestScope.error != null}">
-				<div class="alert alert-danger" role="alert">
-					<span class="glyphicon glyphicon-exclamation-sign"
-						aria-hidden="true"></span> ${requestScope.error}
-				</div>
+.fakewindowcontain .ui-widget-overlay {
+	position: absolute;
+}
 
-			</c:if>
-			</div>
-		</div>
-		<div class="row" id= "add"  style="display:none";>
-			<form class="form-signin" name = "myform" id= "myform"  action="<c:url value="/registration" ></c:url>" method="post" >
+select {
+	width: 200px;
+}
+</style>
+<script>
+	function create() {
+		table = $('#example').dataTable({
+			"bJQueryUI" : true,
+			"ajax" : "registration?op=get",
 
-				<h2 class="form-signin-heading">Please fill the fields correctly</h2>
-				<label for="username" class="sr-only">Username</label> <input
-					type="text" name="username" id="username" class="form-control"
-					placeholder="Username" > 
-				<label for="firstname" class="sr-only">First name</label> <input
-					type="text" name="firstname" id="firstname" class="form-control"
-					placeholder="First name" >
-				<label for="lastname" class="sr-only">Last name</label> <input
-					type="text" name="lastname" id="lastname" class="form-control"
-					placeholder="Last name" >
-				<label for="email" class="sr-only">Email</label> <input
-					type="email" name="email" id="email" class="form-control"
-					placeholder="Email address" >
-				<label for="phonenumber" class="sr-only">Phone number</label> <input
-					type="text" name="phonenumber" id="phonenumber"  class="form-control"
-					placeholder="Phone number" > 
-				<label for="inputEmail" class="sr-only">Image</label> <input
-					type="url" name="image" id="inputEmail" class="form-control"
-					placeholder="Image url" >
-				<label
-					for="password" class="sr-only">Password</label>
-				 <input
-					type="password" name="password" id="password"
-					class="form-control" placeholder="Password" onChange="checkPasswordMatch();" >
-					<label
-					for="passwordagain" class="sr-only">Password again</label>
-				 <input
-					type="password" name="passwordagain" id="passwordagain"
-					class="form-control" placeholder="Password again" onChange="checkPasswordMatch();" >
-					
-   					 <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
-					
-				
-				
-				<button class="btn btn-lg btn-primary btn-block" type="submit" id= "bt" name="bt" value = "sign-up" onclick="closeAdd()">Sign up</button>	
-				<button class="btn btn-lg btn-primary btn-block" type="submit" id= "bt" name="bt"  onclick="closeAdd()">Cencel</button>	
-			</form>
-			
-		</div>
-		<div class="row" id= "del"  style="display:none";>
-			<form class="form-signin" name = "myform" id= "myform"  action="<c:url value="/registration" ></c:url>" method="post" >
+			"columns" : [  {
+				"data" : "username"
+			}, {
+				"data" : "password"
+			}, {
+				"data" : "firstname"
+			},  {
+				"data" : "lastname"
+			}, {
+				"data" : "email"
+			}, {
+				"data" : "phone"
+			}, {
+				"data" : "id"
+			}
 
-				<h2 class="form-signin-heading">Delete by ID</h2>
-				<label for="id" class="sr-only">ID</label> <input
-					type="text" name="id" id="id" class="form-control" > 							
-				<button class="btn btn-lg btn-primary btn-block" type="submit" id= "bt" name="bt" value = "delete" onclick="closeDel()">Delete</button>	
-				<button class="btn btn-lg btn-primary btn-block" type="submit" id= "bt" name="bt"  onclick="closeUpp()">Cencel</button>	
-			</form>
-			
-		</div>
-		<div class="row" id= "findBy"  style="display:none";>
-			<form class="form-signin" name = "myform" id= "myform"  action="<c:url value="/registration" ></c:url>" method="post" >
+			]
+		});
 
-				<h2 class="form-signin-heading">Delete by ID</h2>
-				<label for="id" class="sr-only">ID</label> <input
-					type="text" name="id" id="id" class="form-control" > 							
-				<button class="btn btn-lg btn-primary btn-block" type="submit" id= "bt" name="bt" value = "delete" onclick="closeDel()">Delete</button>	
-				<button class="btn btn-lg btn-primary btn-block" type="submit" id= "bt" name="bt"  onclick="closeUpp()">Cencel</button>	
-			</form>
-			
-		</div>
+		$('#example tbody tr').click(function() {
+			console.log(this);
+			if ($(this).hasClass('selected')) {
+				$(this).removeClass('selected');
+			} else {
+				table.$('tr.selected').removeClass('selected');
+				$(this).addClass('selected');
+			}
+		});
+
+	}
+
+	$(document).ready(function() {
+		create();
 		
-<div class="row" id= "find"  style="display:none";>
-			<form class="form-signin" name = "myform" id= "myform"  action="<c:url value="/registration" ></c:url>" method="post" >
+		$("#dialog").dialog({
+			autoOpen : false,
+			width : 400,
+			modal: true,
+			buttons : [ {
+				
+				text : "Save",
+				click : function() {
+					if($('#myform').valid()){
+					$.ajax({
+						url : 'registration',
+						type : 'POST',
+						data : {
+							op : 'add',
+							username : $('#username').val(),
+							firstname : $('#firstname').val(),
+							lastname : $('#lastname').val(),
+							phone : $('#phone').val(),
+							email : $('#email').val(),
+							password : $('#password').val(),
+							passwordagain : $('#passwordagain').val(),
+							
+						},
+						success : function(data) {
+							
+							$("#dialog").dialog("close");
+							$('#example').dataTable().fnDestroy();
+							create();
+						},
+						dataType : "html"
+					});
+					 
+					$( this ).dialog( 'close' );}
+					}
+			}, {
+				text : "Cancel",
+				click : function() {
+					$(this).dialog("close");
+				}
+			} ]
+		});
 
-				<h2 class="form-signin-heading">FInd by name</h2>
-				<label for="id" class="sr-only">findByName</label> <input
-					type="text"  id="findByName" class="form-control" > 							
-				<button class="btn btn-lg btn-primary btn-block" type="submit" id= "bt" name="bt" value = "find" onclick="closeDel()">Find</button>	
-				<button class="btn btn-lg btn-primary btn-block" type="submit" id= "bt" name="bt"  onclick="closeUpp()">Cencel</button>	
-			</form>
+		$("#dialog-link").click(function(event) {
+			$("#dialog").dialog("open");
 			
-		</div>
-	</div>
-	
-	
+			event.preventDefault();
+		});
+		
 
-<script type="text/javascript">
+		
+		    var table = $('#example').DataTable();
+		    
+		    $('#example tbody').on( 'click', 'tr', function () {
+		  		    	
+		        if ( $(this).hasClass('selected') ) {
+		            $(this).removeClass('selected');		            
+		        }
+		        else {
+		            table.$('tr.selected').removeClass('selected');
+		            $(this).addClass('selected');		            
+		        }		    		        
+		    } );
+		    
+		 
+		    
+		    $('#delete').click( function () {		       
+		    	var id = $($('#example tr.selected td')[6]).html();
+		        $.ajax({
+					url : 'registration',
+					type : 'POST',
+					data : {
+						op : 'del',
+						did : id,
+					},
+					success : function(data) {
+						
+						$('#example').dataTable().fnDestroy();
+						create();
+					},
+					dataType : "html"
+				});
+		    } );
+		
+		
+		
+		$("#udialog").dialog({
+			autoOpen : false,
+			width : 400,
+			modal: true,
+			buttons : [ {
+				text : "Update",
+				click : function() {
+					if($('#myform2').valid()){
+					$.ajax({
+						url : 'registration',
+						type : 'POST',
+						data : {
+							op : 'update',
+							username : $('#uusername').val(),
+							firstname : $('#ufirstname').val(),
+							lastname : $('#ulastname').val(),
+							phone : $('#uphone').val(),
+							email : $('#uemail').val(),
+							password : $('#upassword').val(),
+							passwordagain : $('#upasswordagain').val()
+						},
+						success : function(data) {
+							$("#udialog").dialog("close");
+							$('#example').dataTable().fnDestroy();
+							create();
+						},
+						dataType : "html"
+					});
+					$( this ).dialog( 'close' );}
+					
 
-$.validator.addMethod('customphone', function (value, element) {
-    return this.optional(element) || /^\+36(?:[0-9] ?){6,8}[0-9]$/.test(value);
-}, "Please enter a valid phone number");
-</script>
+				}
+			}, {
+				text : "Cancel",
+				click : function() {
+					$(this).dialog("close");
+				}
+			} ]
+		});
 
+		
+		$("#update").click(function(event) {
+			$("#udialog").dialog("open");
+			var cells = $('#example tr.selected td');
+			var id = $(cells[6]).html();
+			var username = $(cells[0]).html();
+			var firstname = $(cells[2]).html();
+			var lastname = $(cells[3]).html();
+			var email = $(cells[4]).html();
+			var password = $(cells[1]).html();
+			var passwordagain= $(cells[1]).html();
+			var phone = $(cells[5]).html();
+			$('#uusername').val(username);
+			$('#ufirstname').val(firstname);
+			$('#ulastname').val(lastname);
+			$('#uphone').val(phone);
+			$('#uemail').val(email);
+			$('#upassword').val(password);
+			$('#upasswordagain').val(passwordagain);
+			$('#id').val(id);
+			
+			event.preventDefault();
+		});
+		
+		
+		
+		 $("#myform").validate({
+	            rules: {
+	            	
+	            	firstname: {
+	                    required: true,
+	                    maxlength: 30,
+	                    
+	                },
+	                lastname: {
+	                    required: true,
+	                    maxlength: 30,
+	                    
+	                },
+	                username: {
+	                    required: true,
+	                    maxlength: 30,
+	                    
+	                },
+	                email: {
+	                    required: true,
+	                    email: true
+	                },
+	                 phone:'customphone',
+	            	   
+	            },
+	            messages: {
+	                email: {
+	                    required: "Please enter a valid email address.",
+	                    email: "Invalid Email Address."
+	                },
+	                firstname: {
+	                    
+	                    maxlength: "The maximumm length is 30 char"
+	                    
+	                },
+	                lastname: {
+	                    
+	                	maxlength:"The maximumm length is 30 char"
+	                    
+	                },
+	                username: {
+	                    
+	                	maxlength: "The maximumm length is 30 char"
+	                    
+	                }
+	            	
+	            },
+	            
+	            submitHandler: function(form) { 
+	                return false;
+	            },
+	            invalidHandler: function() { 
+	            	alert('not valid data given');
+	            }
+	        });
+		 
+		 $("#myform2").validate({
+	            rules: {
+	            	
+	            	firstname: {
+	                    required: true,
+	                    maxlength: 30,
+	                    
+	                },
+	                lastname: {
+	                    required: true,
+	                    maxlength: 30,
+	                    
+	                },
+	                username: {
+	                    required: true,
+	                    maxlength: 30,
+	                    
+	                },
+	                email: {
+	                    required: true,
+	                    email: true
+	                },
+	                 phone:'customphone',
+	            	   
+	            },
+	            messages: {
+	                email: {
+	                    required: "Please enter a valid email address.",
+	                    email: "Invalid Email Address."
+	                },
+	                firstname: {
+	                    
+	                    maxlength: "The maximumm length is 30 char"
+	                    
+	                },
+	                lastname: {
+	                    
+	                	maxlength:"The maximumm length is 30 char"
+	                    
+	                },
+	                username: {
+	                    
+	                	maxlength: "The maximumm length is 30 char"
+	                    
+	                }
+	            	
+	            },
+	            
+	            submitHandler: function(form) { 
+	                return false;
+	            },
+	            invalidHandler: function() { 
+	            	alert('not valid data given');
+	            }
+	        });
+		 
 
-
-<script type="text/javascript">
-
-        $("#myform").validate({
-            rules: {
-            	firstname: {
-                    required: true,
-                    maxlength: 30,
-                    
-                },
-                lastname: {
-                    required: true,
-                    maxlength: 30,
-                    
-                },
-                username: {
-                    required: true,
-                    maxlength: 30,
-                    
-                },
-                image: {
-                    required: true,
-                    
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-                phonenumber:'customphone',
-                
-            },
-            messages: {
-                email: {
-                    required: "Please enter a valid email address.",
-                    email: "Invalid Email Address."
-                },
-                firstname: {
-                    
-                    maxlength: "The maximumm length is 30 char"
-                    
-                },
-                lastname: {
-                    
-                	maxlength:"The maximumm length is 30 char"
-                    
-                },
-                username: {
-                    
-                	maxlength: "The maximumm length is 30 char"
-                    
-                }
-            	
+		 $.validator.addMethod('customphone', function (value, element) {
+		     return this.optional(element) || /^\+36(?:[0-9] ?){6,8}[0-9]$/.test(value);
+		 }, "Please enter a valid phone number");
+		 
+		 
+		 function passwordsMatch(){
+	            return $('#password').val() == $('#passwordagain').val();
+	        }
+		 
+	       $("#passwordagain").keyup(function(){
+           	
+               if(!passwordsMatch()){
+                   $("#divCheckPasswordMatch").html("Passwords do not match!");
+                  
+               } else {
+                   $("#divCheckPasswordMatch").html("Passwords match.");
+               }
+           });
+           $("#password").keyup(function(){
+               if(!passwordsMatch()){
+                   $("#divCheckPasswordMatch").html("Passwords do not match!");
+                   
+               } else {
+                   $("#divCheckPasswordMatch").html("Passwords match.");
+               }
+           });
+           
+           
+           
+  		 function passwordsUpdateMatch(){
+	            return $('#upassword').val() == $('#upasswordagain').val();
+	        }
+		 
+	       $("#upasswordagain").keyup(function(){
+        	
+            if(!passwordsUpdateMatch()){
+                $("#divCheckPasswordMatch2").html("Passwords do not match!");
+               
+            } else {
+                $("#divCheckPasswordMatch2").html("Passwords match.");
             }
         });
-        </script>
-        <script type="text/javascript">
-        function passwordsMatch(){
-            return $('#password').val() == $('#passwordagain').val();
-        }
-</script>
-<script type="text/javascript">
-        $(document).ready(function () {
-            $("#passwordagain").keyup(function(){
-            	
-                if(!passwordsMatch()){
-                    $("#divCheckPasswordMatch").html("Passwords do not match!");
-                   
-                } else {
-                    $("#divCheckPasswordMatch").html("Passwords match.");
-                }
-            });
-            $("#password").keyup(function(){
-                if(!passwordsMatch()){
-                    $("#divCheckPasswordMatch").html("Passwords do not match!");
-                    
-                } else {
-                    $("#divCheckPasswordMatch").html("Passwords match.");
-                }
-            });
+        $("#upassword").keyup(function(){
+            if(!passwordsUpdateMatch()){
+                $("#divCheckPasswordMatch2").html("Passwords do not match!");
+                
+            } else {
+                $("#divCheckPasswordMatch2").html("Passwords match.");
+            }
+        });
+          
            
-            
 
-            $('#myForm').submit(function(evt) {
+           $('#myform').submit(function(evt) {
+              if(!passwordsMatch()){
+                   evt.preventDefault();
+               }
+           });
+           $('#myform2').submit(function(evt) {
                if(!passwordsMatch()){
                     evt.preventDefault();
                 }
             });
+           
 
-        });
 
-        </script>
-        <script type="text/javascript">
-        $(function () {
-            $("#bt").click(function () {
-                var password = $("#password").val();
-                var confirmPassword = $("#passwordagain").val();
-                if (password != confirmPassword) {
-                    alert("Passwords do not match.");
-                    return false;
-                }
-                if (password.length<8) {
-                	$("#divCheckPasswordMatch").html("Password is too short");
-                    return false;
-                }
-                return true;
-            });
-        });
-    </script>
-    
-<script type="text/javascript">
-function showAdd() {
-	   document.getElementById('add').style.display = "block";
-	}
-
-function showFind() {
-	   document.getElementById('find').style.display = "block";
-	}
-
-function showDel() {
-	   document.getElementById('del').style.display = "block";
-	}
-function closeFind() {
-	   document.getElementById('find').style.display = "none";
-	}
-
-function closeAdd() {
-	   document.getElementById('add').style.display = "none";
-	}
-function closeDel() {
-	   document.getElementById('del').style.display = "none";
-	}
-	
+	});
 </script>
 
+</head>
+<body>
+	<table>
 
-<button class="btn btn-lg btn-primary btn-block" type="submit" id= "bt" name="bt" onclick="showAdd(), closeDel(), closeFind()">Add</button></body>
-<button class="btn btn-lg btn-primary btn-block" type="submit" id= "bt" name="bt" onclick="showDel(), closeAdd(), closeFind()">Delete</button></body>
-<button class="btn btn-lg btn-primary btn-block" type="submit" id= "bt" name="bt" onclick="showFind(), closeAdd(), closeDel()">Search</button></body>
+		<tr>
+			
+			<td>
+				<table>
+					<tr>
+						<td colspan="3"><table id="example" class="display"
+								cellspacing="0" width="100%">
+								<thead>
+									<tr>
+										
+										<th>UserName</th>
+										<th>Password</th>
+										<th>Firstname</th>
+										
+										<th>Lastname</th>
+										
+										<th>Email</th>
+										<th>Phone</th>
+										<th>ID</th>
+
+									</tr>
+								</thead>
+
+
+							</table></td>
+					</tr>
+					<tr>
+						<td><a href="#" id="dialog-link"
+							class="ui-state-default ui-corner-all"><span
+								class="ui-icon ui-icon-newwin"></span>Add</a>
+						<td><td>
+						<a href="#" id="delete"
+							class="ui-state-default ui-corner-all"><span
+								class="ui-icon ui-icon-newwin"></span>Delete</a><td>
+						<td><a href="#" id="update"
+							class="ui-state-default ui-corner-all"><span
+								class="ui-icon ui-icon-newwin"></span>Update</a>
+						<td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	
+
+	<div id="dialog" title="Dialog Title">
+	<form id = "myform" >
+		<table>
+
+			<tr>
+				<td>Username</td>
+				<td><input id="username" type="text" name= "username"></td>
+			</tr>
+			<tr>
+				<td>Firstname</td>
+				<td><input id="firstname" type="text" name= "firstname"></td>
+			</tr>
+			<tr>
+				<td>Lastname</td>
+				<td><input id="lastname" type="text" name= "lastname"></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input id="password" type="password" name= "password" onChange="checkPasswordMatch();"></td>
+			</tr>
+			<tr>
+				<td>Password again</td>
+				<td><input id="passwordagain" type="password" name= "passwordagain" onChange="checkPasswordMatch();"></td>
+				<div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input id="email" type="text" name= "email"></td>
+			</tr>
+			<tr>
+				<td>Phone</td>
+				<td><input id="phone" type="text" name= "phone"></td>
+			</tr>
+
+		</table>
+</form>
+	</div>
+	
+
+
+	<div id="udialog" title="Dialog Title">
+	<form id = "myform2" >
+		<table>
+<input id="id" type="hidden">
+			<tr>
+				<td>Username</td>
+				<td><input id="uusername" type="text" disabled></td>
+			</tr>
+			<tr>
+				<td>Firstname</td>
+				<td><input id="ufirstname" type="text" name= "firstname"></td>
+			</tr>
+			<tr>
+				<td>Lastname</td>
+				<td><input id="ulastname" type="text" name= "lastname"></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input id="upassword" type="password" name= "password" onChange="checkPasswordMatch();"></td>
+			</tr>
+			<tr>
+				<td>Passwordagain</td>
+				<td><input id="upasswordagain" type="password" name= "passwordagain" onChange="checkPasswordMatch();"></td>
+				<div class="registrationFormAlert" id="divCheckPasswordMatch2"></div>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input id="uemail" type="text" name= "email"></td>
+			</tr>
+			<tr>
+				<td>Phone</td>
+				<td><input id="uphone" type="text" name= "phone"></td>
+			</tr>
+
+
+		</table>
+</form>
+	</div>
+
+</body>
+</html>
