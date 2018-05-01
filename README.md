@@ -1,2 +1,5 @@
-﻿Favorite food (html) - DONE
-Maven MM - DONE
+﻿Maven multimodule - DONE
+Favorite food (html) - DONE
+JQuery - DONE
+Blog (szerver és kliens oldali validálás) - DONE
+Login - ...
