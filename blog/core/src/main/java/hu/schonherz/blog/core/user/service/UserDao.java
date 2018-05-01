@@ -122,17 +122,12 @@ public class UserDao implements GenericDao<UserDto> {
 	@Override
 	public Long save(UserDto t) throws NamingException, SQLException {
 		// TODO Auto-generated method stub
-		Context initContext = null;
-		Context envContext = null;
-		DataSource ds = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		Long rv = null;
+		DataSource ds = null;
 
 		try {
-			initContext = new InitialContext();
-			envContext = (Context) initContext.lookup("java:/comp/env");
-			ds = (DataSource) envContext.lookup("jdbc/Users");
 			String sql = "INSERT INTO REGISTRATION( username, firstname,lastname,password,email,phone ) VALUES ( ?,?,?,?,?,?) ";
 			ps = ds.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
