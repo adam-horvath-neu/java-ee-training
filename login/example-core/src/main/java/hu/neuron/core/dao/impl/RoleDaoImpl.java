@@ -20,9 +20,8 @@ public class RoleDaoImpl implements RoleDao {
 	}
 
 	@Override
-	public RoleDto upadte(RoleDto t) {
+	public void upadte(RoleDto t) {
 		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

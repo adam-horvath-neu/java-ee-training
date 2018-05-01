@@ -15,6 +15,8 @@ import hu.neuron.service.vo.UserVo;
 @WebServlet("/registration")
 public class Registration extends HttpServlet {
 
+	private static final long serialVersionUID = 8921285364492086142L;
+
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -29,11 +31,17 @@ public class Registration extends HttpServlet {
 		UserVo vo = new UserVo();
 		vo.setUsername(request.getParameter("username"));
 		vo.setPassword(password);
+		vo.setEmail(request.getParameter("email"));
+		vo.setFirstname(request.getParameter("firstname"));
+		vo.setLastname(request.getParameter("lastname"));
+		vo.setPhone(request.getParameter("phone"));
+		vo.setUrl(request.getParameter("picture"));
+		
 		service.registration(vo);
 
 		request.setAttribute("OK", Boolean.TRUE);
 
-		request.getRequestDispatcher("registration.jsp").forward(request, response);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 
 	}
 }

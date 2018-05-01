@@ -25,9 +25,9 @@ public class UserServiceTest {
 			PGSimpleDataSource ds = new PGSimpleDataSource();
 			ds.setServerName("localhost");
 			ds.setPortNumber(5432);
-			ds.setDatabaseName("training");
+			ds.setDatabaseName("Employee");
 			ds.setUser("postgres");
-			ds.setPassword("admin");
+			ds.setPassword("password");
 			
 			InitialContext ic = new InitialContext();
 			ic.createSubcontext("java:");
@@ -49,6 +49,11 @@ public class UserServiceTest {
 		UserVo vo = new UserVo();
 		vo.setPassword("pass");
 		vo.setUsername("user");
+		vo.setEmail("user@email.com");
+		vo.setFirstname("First");
+		vo.setLastname("Last");
+		vo.setPhone("000 000 0000");
+		vo.setUrl("http://i1.kym-cdn.com/photos/images/newsfeed/000/250/007/672.jpg");
 		service.registration(vo);
 	}
 
