@@ -1,5 +1,8 @@
 package hu.neuron.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import hu.neuron.core.dao.UserDao;
 import hu.neuron.core.dao.impl.UserDaoImpl;
 import hu.neuron.core.dto.UserDto;
@@ -17,5 +20,17 @@ public class UserServiceImpl implements UserService {
 		// userDao.find(id);
 		return vo;
 	}
+	
+	@Override
+	public List<UserVo> getAllUsers() {
+		UserDao userDao = new UserDaoImpl();
+		List<UserDto> userDtoList = userDao.findAll();
+		List<UserVo> userVoList = new ArrayList<>();
+		for (int i = 0; i < userDtoList.size(); i++) {
+			userVoList.add(UserConverter.toUserVo(userDtoList.get(i)));
+		}
+		return userVoList;
+	}
+	
 
 }

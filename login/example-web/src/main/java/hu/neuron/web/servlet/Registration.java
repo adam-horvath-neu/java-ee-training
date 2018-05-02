@@ -41,7 +41,7 @@ public class Registration extends HttpServlet {
 
 		request.setAttribute("OK", Boolean.TRUE);
 
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		response.sendRedirect("index.jsp");
 
 	}
 }

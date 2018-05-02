@@ -199,8 +199,6 @@ public class UserDaoImpl implements UserDao {
 
 			statement = connection.prepareStatement(sql);
 
-			statement.executeUpdate();
-
 			rs = statement.executeQuery(); // !
 
 			while (rs.next()) {
