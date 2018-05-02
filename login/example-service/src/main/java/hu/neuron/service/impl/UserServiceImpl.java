@@ -14,6 +14,8 @@ public class UserServiceImpl implements UserService {
 		UserDao userDao = new UserDaoImpl();
 
 		Long id = userDao.save(UserConverter.toUserDto(vo));
+		
+		userDao.findByName(vo.getUsername());
 		// userDao.find(id);
 		return vo;
 	}

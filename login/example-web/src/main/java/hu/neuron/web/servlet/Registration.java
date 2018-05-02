@@ -29,6 +29,11 @@ public class Registration extends HttpServlet {
 		UserVo vo = new UserVo();
 		vo.setUsername(request.getParameter("username"));
 		vo.setPassword(password);
+		vo.setFirstname(request.getParameter("firstname"));
+		vo.setLastname(request.getParameter("lastname"));
+		vo.setEmail(request.getParameter("email"));
+		vo.setPhone(request.getParameter("phone"));
+		vo.setUrl(request.getParameter("url"));
 		service.registration(vo);
 
 		request.setAttribute("OK", Boolean.TRUE);

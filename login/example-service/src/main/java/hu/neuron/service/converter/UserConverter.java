@@ -18,6 +18,11 @@ public class UserConverter {
 		userVo.setUsername(dto.getUsername());
 		userVo.setPassword(dto.getPassword());
 		userVo.setId(dto.getId());
+		userVo.setFirstname(dto.getFirstname());
+		userVo.setLastname(dto.getLastname());
+		userVo.setPhone(dto.getPhone());
+		userVo.setUrl(dto.getUrl());
+		userVo.setEmail(dto.getEmail());
 
 		// RoleDao roleDao = new RoleDaoImpl();
 
@@ -31,6 +36,12 @@ public class UserConverter {
 		userDto.setId(vo.getId());
 		userDto.setPassword(vo.getPassword());
 		userDto.setUsername(vo.getUsername());
+		userDto.setFirstname(vo.getFirstname());
+		userDto.setLastname(vo.getLastname());
+		userDto.setPhone(vo.getPhone());
+		userDto.setEmail(vo.getEmail());
+		userDto.setUrl(vo.getUrl());
+		
 		return userDto;
 	}
 }
