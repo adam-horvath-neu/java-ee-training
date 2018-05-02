@@ -19,41 +19,20 @@ private List<User> results = new ArrayList<User>();
 @Expose
 private Info info;
 
-/**
-* 
-* @return
-* The results
-*/
 public List<User> getResults() {
 return results;
 }
 
-/**
-* 
-* @param results
-* The results
-*/
 public void setResults(List<User> results) {
 this.results = results;
 }
 
-/**
-* 
-* @return
-* The info
-*/
 public Info getInfo() {
 return info;
 }
 
-/**
-* 
-* @param info
-* The info
-*/
 public void setInfo(Info info) {
 this.info = info;
 }
 
 }
-

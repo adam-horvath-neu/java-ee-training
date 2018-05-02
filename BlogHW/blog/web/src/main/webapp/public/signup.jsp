@@ -69,19 +69,5 @@
 	</div>
 
 </body>
-<script>
-// 	$('#inputFirstName').change(function() {
-// 		$.ajax({
-// 			url : 'SignUpServlet',
-// 			firstname : $('inputFirstName').val(),
-// 			type : 'POST',
-// 			success : function(data) {
-// 				$("#result").html(data);
-// 			},
-// 			dataType : "html"
-// 		});
-
-// 	});
-</script>
 
 </html>
