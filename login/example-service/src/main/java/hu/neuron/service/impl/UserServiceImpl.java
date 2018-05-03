@@ -44,4 +44,12 @@ public class UserServiceImpl implements UserService {
 		return users;
 	}
 
+	@Override
+	public void update(UserVo vo) {
+		UserDao userDao = new UserDaoImpl();
+
+		userDao.update(UserConverter.toUserDto(vo));
+		
+	}
+
 }

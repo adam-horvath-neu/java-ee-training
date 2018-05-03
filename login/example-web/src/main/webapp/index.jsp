@@ -41,9 +41,9 @@
 				<c:if test="${sessionScope.user == null}">
 					<a class="blog-nav-item" href="<c:url value="public/registration.jsp"/>">SignUp</a>
 				</c:if>
-				<c:if test="${sessionScope.user == null}">
-					<a class="blog-nav-item" href="<c:url value="public/crudtable.jsp"/>">CRUD Table</a>
-				</c:if>
+				
+					<a class="blog-nav-item" href="<c:url value="crudAjax.jsp"/>">CRUD Table</a>
+				
 
 			</nav>
 		</div>

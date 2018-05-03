@@ -1,6 +1,5 @@
 package hu.neuron.web.servlet.login;
 
-import java.awt.geom.GeneralPath;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -13,16 +12,14 @@ import hu.neuron.service.UserService;
 import hu.neuron.service.impl.UserServiceImpl;
 import hu.neuron.service.vo.UserVo;
 
-/**
- * Servlet implementation class Login
- */
+
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	private static final String LOGIN_JSP_URL = "public/login.jsp";
-	private static final String SECURED_JSP_URL = "secured/secured.jsp";
+	private static final String DTABLE_JSP_URL = "crudAjax.jsp";
 
 	public Login() {
 		super();
@@ -48,7 +45,7 @@ public class Login extends HttpServlet {
 			String password = request.getParameter("password");
 			if (userVo.getPassword().equals(password)) {
 				request.getSession().setAttribute("user", userVo);
-				response.sendRedirect(SECURED_JSP_URL);
+				response.sendRedirect(DTABLE_JSP_URL);
 
 			} else {
 				request.setAttribute("error", "Hibás jelszó!");

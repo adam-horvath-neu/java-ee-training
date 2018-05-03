@@ -83,21 +83,20 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public UserDto upadte(UserDto t) {
+	public UserDto update(UserDto t) {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
 			connection = DatasourceUtil.getDatasource().getConnection();
-			String sql = "UPDATE employee set username=? ,firstname=?, lastname=?, password=? email=?, phone=?, where id=?";
+			String sql = "UPDATE employee set username=? ,firstname=?, lastname=?, email=?, phone=?, where id=?";
 			statement = connection.prepareStatement(sql);
 
 			statement.setString(1, t.getUsername());
 			statement.setString(2, t.getFirstname());
 			statement.setString(3, t.getLastname());
-			statement.setString(4, t.getPassword());
-			statement.setString(5, t.getEmail());
-			statement.setString(6, t.getPhone());
-			statement.setLong(7, t.getId());
+			statement.setString(4, t.getEmail());
+			statement.setString(5, t.getPhone());
+			statement.setLong(6, t.getId());
 			int i = statement.executeUpdate();
 
 		} catch (Exception e) {

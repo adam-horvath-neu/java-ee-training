@@ -20,12 +20,9 @@ import hu.neuron.service.vo.UserVo;
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public UserServlet() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

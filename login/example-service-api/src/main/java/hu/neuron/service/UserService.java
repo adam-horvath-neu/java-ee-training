@@ -11,5 +11,7 @@ public interface UserService {
 	UserVo getUserByName(String name);
 	
 	List<UserVo> findAllUser();
+	
+	void update(UserVo vo);
 
 }

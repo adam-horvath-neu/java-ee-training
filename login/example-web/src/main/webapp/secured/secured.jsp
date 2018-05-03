@@ -38,7 +38,7 @@
 				</c:if>
 				<a class="blog-nav-item active"
 					href="<c:url value="/secured/secured.jsp"/>">Users</a>
-
+				<a class="blog-nav-item" href="<c:url value="/public/crudtable.jsp"/>">CRUD Table</a>
 			</nav>
 		</div>
 	</div>

@@ -1,14 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<jsp:include page="header.jsp"></jsp:include>
 
-<title>The C.R.U.D</title>
 <script src="resources/datatable/js/jquery.dataTables.js"></script>
 <link href="resources/datatable/css/jquery.dataTables_themeroller.css"
 	rel="stylesheet">
+	
 <style>
 .demoHeaders {
 	margin-top: 2em;
@@ -55,6 +56,119 @@ select {
 	width: 200px;
 }
 </style>
+<script>
+	function create() {
+		table = $('#example').dataTable({
+			"bJQueryUI" : true,
+			"ajax" : "DataServlet?op=get",
+
+			"columns" : [ {
+				"data" : "id"
+			}, {
+				"data" : "username"
+			}, {
+				"data" : "firstname"
+			}, {
+				"data" : "lastname"
+			}, {
+				"data" : "email"
+			}, {
+				"data" : "phone"
+			}
+
+			]
+		});
+
+		$('#example tbody tr').click(function() {
+			console.log(this);
+			if ($(this).hasClass('selected')) {
+				$(this).removeClass('selected');
+			} else {
+				table.$('tr.selected').removeClass('selected');
+				$(this).addClass('selected');
+			}
+		});
+
+	}
+
+	$(document).ready(function() {
+		create();
+
+		$("#dialog").dialog({
+			autoOpen : false,
+			width : 400,
+			buttons : [ {
+				text : "Save",
+				click : function() {
+					$.ajax({
+						url : 'DataServlet',
+						data : {
+							op : 'add',
+							username : $('#username').val(),
+							firstname : $('#firstname').val(),
+							lastname : $('#lastname').val(),
+							email : $('#email').val(),
+							phone : $('#phone').val(),
+						},
+						success : function(data) {
+							$("#dialog").dialog("close");
+							$('#example').dataTable().fnDestroy();
+							create();
+						},
+						dataType : "html"
+					});
+
+				}
+			}, {
+				text : "Cancel",
+				click : function() {
+					$(this).dialog("close");
+				}
+			} ]
+		});
+
+		$("#dialog-link").click(function(event) {
+			$("#dialog").dialog("open");
+			event.preventDefault();
+		});
+
+		$("#udialog").dialog({
+			autoOpen : false,
+			width : 400,
+			buttons : [ {
+				text : "Update",
+				click : function() {
+					$.ajax({
+						type : "POST",
+						url : 'DataServlet',
+						data : {
+							op : 'update',
+							id : $('#id').val(),
+							username : $('#uusername').val(),
+							firstname : $('#ufirstname').val(),
+							lastname : $('#ulastname').val(),
+							email : $('#uemail').val(),
+							phone : $('#uphone').val(),
+						},
+						success : function(data) {
+							$("#udialog").dialog("close");
+							$('#example').dataTable().fnDestroy();
+							create();
+						},
+						dataType : "html"
+					});
+
+				}
+			}, {
+				text : "Cancel",
+				click : function() {
+					$(this).dialog("close");
+				}
+			} ]
+		});
+
+	});
+</script>
 </head>
 <body>
 	<table>
@@ -70,10 +184,12 @@ select {
 										<th>Username</th>
 										<th>Firstname</th>
 										<th>Lastname</th>
-										<th>Phonenumber</th>
 										<th>Email</th>
+										<th>Phone</th>
 									</tr>
 								</thead>
+
+
 							</table></td>
 					</tr>
 					<tr>
@@ -103,14 +219,13 @@ select {
 				<td><input id="lastname" type="text"></td>
 			</tr>
 			<tr>
-				<td>Phonenumber</td>
-				<td><input id="phone" type="text"></td>
-			</tr>
-			<tr>
 				<td>Email</td>
 				<td><input id="email" type="text"></td>
 			</tr>
-
+			<tr>
+				<td>Phone</td>
+				<td><input id="phone" type="text"></td>
+			</tr>
 
 		</table>
 
@@ -132,12 +247,12 @@ select {
 				<td><input id="ulastname" type="text"></td>
 			</tr>
 			<tr>
-				<td>Phonenumber</td>
-				<td><input id="uphone" type="text"></td>
-			</tr>
-			<tr>
 				<td>Email</td>
 				<td><input id="uemail" type="text"></td>
+			</tr>
+			<tr>
+				<td>Phone</td>
+				<td><input id="uphone" type="text"></td>
 			</tr>
 
 		</table>
