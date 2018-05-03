@@ -31,7 +31,7 @@
 			<div class="row">
 				<div class="col">
 					<form class="form-signup"
-						action="<c:url value="/Register" ></c:url>" method="POST">
+						action="<c:url value="/registration" ></c:url>" method="post">
 						<h1>Registration form</h1>
 						<label for="username" class="sr-only">Enter Username</label>
 						<input type="text" name="username" id="username"
@@ -82,7 +82,6 @@
 	<!-- Latest compiled JavaScript -->
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="../resources/js/registrationFormValidator.js"></script>
+	<script type="text/javascript" src="/resources/js/validate.js"></script>
 </body>
 </html>

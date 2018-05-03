@@ -15,32 +15,41 @@ import hu.neuron.service.vo.UserVo;
 @WebServlet("/registration")
 public class Registration extends HttpServlet {
 
-	private static final long serialVersionUID = 8921285364492086142L;
+	private static final long serialVersionUID = 1L;
 
-	@Override
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public Registration() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		String password = request.getParameter("password");
 		String password2 = request.getParameter("password2");
 		if (password != null && !password.equals(password2)) {
-			request.setAttribute("ERROR", "Jelszavak nem egyeznek!");
+			request.setAttribute("error", "A jelszavak nem egyeznek");
 		}
-		
 		UserService service = new UserServiceImpl();
 		UserVo vo = new UserVo();
 		vo.setUsername(request.getParameter("username"));
 		vo.setPassword(password);
 		vo.setFirstname(request.getParameter("firstname"));
 		vo.setLastname(request.getParameter("lastname"));
+		vo.setUrl(request.getParameter("url"));
 		vo.setEmail(request.getParameter("email"));
 		vo.setPhone(request.getParameter("phone"));
-		vo.setUrl(request.getParameter("url"));
 		service.registration(vo);
 
 		request.setAttribute("OK", Boolean.TRUE);
 
-		request.getRequestDispatcher("index.jsp").forward(request, response);
-
+		request.getRequestDispatcher("registration.jsp").forward(request, response);
 	}
 }
