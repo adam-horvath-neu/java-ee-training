@@ -4,6 +4,6 @@ Favorite food (html) - DONE
 
 JQuery - DONE
 
-Blog (szerver és kliens oldali validálás) - DONE
+Blog (szerver és kliens oldali validálással) - DONE
 
-Login - 
+Login (CRUD validálás nélkül) - DONE

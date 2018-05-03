@@ -32,5 +32,16 @@ public class UserServiceImpl implements UserService {
 		return userVoList;
 	}
 	
+	@Override
+	public void update(UserVo vo) {
+		UserDao userDao = new UserDaoImpl();
+		userDao.upadte(UserConverter.toUserDto(vo));
+	}
+	
+	@Override
+	public void delete(UserVo vo) {
+		UserDao userDao = new UserDaoImpl();
+		userDao.delete(vo.getId());
+	}
 
 }

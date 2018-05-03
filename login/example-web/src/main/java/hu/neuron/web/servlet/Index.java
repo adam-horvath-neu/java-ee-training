@@ -46,7 +46,7 @@ public class Index extends HttpServlet {
 		if (null!=request.getParameter("action")) {
 			whatToDo=request.getParameter("action");
 		}
-		System.out.println(whatToDo);
+
 		if (whatToDo.equals("add")) {
 			UserVo vo = new UserVo();
 			vo.setUsername(request.getParameter("username"));
@@ -58,19 +58,23 @@ public class Index extends HttpServlet {
 			vo.setUrl(request.getParameter("picture"));
 			
 			service.registration(vo);
+		} else if (whatToDo.equals("modify")) {
+			UserVo vo = new UserVo();
+			vo.setId(Long.parseLong(request.getParameter("id")));
+			vo.setUsername(request.getParameter("username"));
+			vo.setPassword(request.getParameter("password"));
+			vo.setEmail(request.getParameter("email"));
+			vo.setFirstname(request.getParameter("firstname"));
+			vo.setLastname(request.getParameter("lastname"));
+			vo.setPhone(request.getParameter("phone"));
+			vo.setUrl(request.getParameter("picture"));
+			
+			service.update(vo);
+		} else if (whatToDo.equals("delete")){
+			UserVo vo = new UserVo();
+			vo.setId(Long.parseLong(request.getParameter("id")));
+			service.delete(vo);
 		}
-//		} else {
-//			UserVo vo = new UserVo();
-//			vo.setUsername(request.getParameter("username"));
-//			vo.setPassword(request.getParameter("password"));
-//			vo.setEmail(request.getParameter("email"));
-//			vo.setFirstname(request.getParameter("firstname"));
-//			vo.setLastname(request.getParameter("lastname"));
-//			vo.setPhone(request.getParameter("phone"));
-//			vo.setUrl(request.getParameter("picture"));
-//			
-//			service.registration(vo);
-//		}
 		request.setAttribute("users", service.getAllUsers());
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 		

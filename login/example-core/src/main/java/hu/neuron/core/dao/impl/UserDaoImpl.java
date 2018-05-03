@@ -76,7 +76,7 @@ public class UserDaoImpl implements UserDao {
 
 			statement = connection.prepareStatement(sql);
 
-			statement.setString(1, id.toString());
+			statement.setLong(1, id);
 
 			statement.executeUpdate();
 
@@ -104,7 +104,7 @@ public class UserDaoImpl implements UserDao {
 		try {
 			connection = DatasourceUtil.getDatasource().getConnection();
 
-			String sql = "UPDATE REGISTRATION SET username=1, firstname=2, lastname=3, url=4, password=5, email=6, phone=7 WHERE username=1";
+			String sql = "UPDATE REGISTRATION SET username=?, firstname=?, lastname=?, url=?, password=?, email=?, phone=? WHERE id=?";
 
 			statement = connection.prepareStatement(sql);
 
@@ -115,6 +115,7 @@ public class UserDaoImpl implements UserDao {
 			statement.setString(5, t.getPassword());
 			statement.setString(6, t.getEmail());
 			statement.setString(7, t.getPhone());
+			statement.setLong(8, t.getId());
 
 			statement.executeUpdate();
 
@@ -195,7 +196,7 @@ public class UserDaoImpl implements UserDao {
 		try {
 			connection = DatasourceUtil.getDatasource().getConnection();
 
-			String sql = "SELECT * FROM REGISTRATION";
+			String sql = "SELECT * FROM REGISTRATION ORDER BY id";
 
 			statement = connection.prepareStatement(sql);
 
