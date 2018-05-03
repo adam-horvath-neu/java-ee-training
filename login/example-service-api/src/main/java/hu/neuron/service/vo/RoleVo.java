@@ -1,9 +1,9 @@
 package hu.neuron.service.vo;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class RoleVo implements Serializable {
+
 	private static final long serialVersionUID = -5474224710861447781L;
 
 	private Long id;

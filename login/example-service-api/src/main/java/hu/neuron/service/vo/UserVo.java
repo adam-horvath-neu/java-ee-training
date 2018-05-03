@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 public class UserVo implements Serializable {
-	private static final long serialVersionUID = 6059096016587583729L;
+
+	private static final long serialVersionUID = -1267256150792154941L;
 
 	private Long id;
 	private String username;

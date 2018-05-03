@@ -11,30 +11,27 @@ public class UserConverter {
 		}
 		UserVo userVo = new UserVo();
 		userVo.setUsername(dto.getUsername());
-		userVo.setPassword(dto.getPassword());
-		userVo.setId(dto.getId());
 		userVo.setFirstname(dto.getFirstname());
 		userVo.setLastname(dto.getLastname());
-		userVo.setPhone(dto.getPhone());
 		userVo.setUrl(dto.getUrl());
+		userVo.setPassword(dto.getPassword());
 		userVo.setEmail(dto.getEmail());
+		userVo.setPhone(dto.getPhone());
+		userVo.setId(dto.getId());
 
 		return userVo;
 	}
 
 	public static UserDto toUserDto(UserVo vo) {
-		if (vo == null) {
-			return null;
-		}
 		UserDto userDto = new UserDto();
 		userDto.setId(vo.getId());
-		userDto.setPassword(vo.getPassword());
 		userDto.setUsername(vo.getUsername());
 		userDto.setFirstname(vo.getFirstname());
 		userDto.setLastname(vo.getLastname());
-		userDto.setPhone(vo.getPhone());
 		userDto.setUrl(vo.getUrl());
+		userDto.setPassword(vo.getPassword());
 		userDto.setEmail(vo.getEmail());
+		userDto.setPhone(vo.getPhone());
 		return userDto;
 	}
 }

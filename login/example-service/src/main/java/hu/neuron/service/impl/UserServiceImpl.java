@@ -21,33 +21,33 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void delete(Long id) {
+	public UserVo getUserByName(String name) {
 		UserDao userDao = new UserDaoImpl();
-		userDao.delete(id);
 
+		UserDto userDto = userDao.findByName(name);
+
+		return UserConverter.toUserVo(userDto);
 	}
 
 	@Override
 	public List<UserVo> findAllUser() {
 		UserDao userDao = new UserDaoImpl();
-		List<UserVo> userVo = new ArrayList<UserVo>();
-		List<UserDto> userDaoList = userDao.findAll();
-		for (int i = 0; i < userDaoList.size(); i++) {
-			userVo.add(UserConverter.toUserVo(userDaoList.get(i)));
+
+		List<UserDto> userDtoList = userDao.findAll();
+		List<UserVo> users = new ArrayList<>();
+		for (UserDto userDto : userDtoList) {
+			users.add(UserConverter.toUserVo(userDto));
 		}
-		return userVo;
+
+		return users;
 	}
 
 	@Override
-	public void updateData(UserVo vo) {
+	public void update(UserVo vo) {
 		UserDao userDao = new UserDaoImpl();
+
 		userDao.update(UserConverter.toUserDto(vo));
-	}
-
-	@Override
-	public UserVo findByUserName(String userName) {
-		UserDao userDao = new UserDaoImpl();
-		return UserConverter.toUserVo(userDao.findByName(userName));
+		
 	}
 
 }

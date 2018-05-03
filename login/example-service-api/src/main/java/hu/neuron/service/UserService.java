@@ -7,8 +7,7 @@ import hu.neuron.service.vo.UserVo;
 public interface UserService {
 
 	UserVo registration(UserVo vo);
-	void delete(Long id);
+	UserVo getUserByName(String name);
 	List<UserVo> findAllUser();
-	void updateData(UserVo vo);
-	UserVo findByUserId(Long userId);
+	void update(UserVo vo);
 }

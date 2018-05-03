@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public class UserDto implements Serializable {
 	private static final long serialVersionUID = 1L;
-
 	private Long id;
 	private String username;
 	private String firstname;
@@ -15,6 +14,18 @@ public class UserDto implements Serializable {
 	private String phone;
 
 	public UserDto() {
+	}
+
+	public UserDto(Long id, String username, String firstname, String lastname, String password, String email,
+			String phone) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.password = password;
+		this.email = email;
+		this.phone = phone;
 	}
 
 	public UserDto(Long id, String username, String firstname, String lastname, String url, String password,
@@ -28,22 +39,6 @@ public class UserDto implements Serializable {
 		this.password = password;
 		this.email = email;
 		this.phone = phone;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
 	}
 
 	public String getFirstname() {
@@ -70,14 +65,6 @@ public class UserDto implements Serializable {
 		this.url = url;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -94,4 +81,27 @@ public class UserDto implements Serializable {
 		this.phone = phone;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }
