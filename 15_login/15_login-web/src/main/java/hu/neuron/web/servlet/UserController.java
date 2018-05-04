@@ -66,6 +66,7 @@ public class UserController extends HttpServlet {
 
 		if (userid == null || userid.isEmpty()) {
 			service.registration(vo);
+			request.setAttribute("OK",Boolean.TRUE);
 		} else {
 
 			vo.setId(Long.parseLong(userid));
