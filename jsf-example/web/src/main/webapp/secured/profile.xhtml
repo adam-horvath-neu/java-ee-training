@@ -1,0 +1,134 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/masterLayout.xhtml">
+
+
+	<ui:define name="pageTitle">#{out['profile.title']}</ui:define>
+
+	<ui:define name="head-extra">
+
+	</ui:define>
+
+	<ui:define name="content">
+
+		<div class="panel panel-default">
+
+			<div class="panel-heading">Profile</div>
+			<div class="panel-body">
+				<h:form id="form">
+					<div class="form-group row">
+						<p:messages></p:messages>
+
+						<h:outputLabel for="userName" value="Username"
+							styleClass="col-sm-2 col-form-label" />
+
+						<div class="col-sm-10">
+							<h:inputText id="userName" readonly="true"
+								styleClass="form-control" label="userName"
+								value="#{profileController.userVo.username}" />
+
+							<h:outputLabel value="#{out.firstname}"></h:outputLabel>
+							<p:inputText id="firstname" required="true"
+								value="#{profileController.userVo.firstname}"
+								requiredMessage="#{out.req_firstname}">
+								<f:validateLength maximum="30" />
+							</p:inputText>
+
+							<h:outputLabel value="#{out.lastname}"></h:outputLabel>
+							<p:inputText id="lastname" required="true"
+								value="#{profileController.userVo.lastname}"
+								requiredMessage="#{out.req_lastname}">
+								<f:validateLength maximum="30" />
+							</p:inputText>
+							<h:outputLabel value="#{out.email}"></h:outputLabel>
+							<p:inputText id="email" required="true"
+								value="#{profileController.userVo.email}"
+								requiredMessage="#{out.req_email}">
+								<f:validateRegex
+									pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+							</p:inputText>
+
+							<h:outputLabel value="#{out.phone}"></h:outputLabel>
+							<p:inputMask id="phone" required="true"
+								value="#{profileController.userVo.phone}"
+								requiredMessage="#{out.req_phone}" />
+
+
+							<h:outputLabel value="#{out.gender}"></h:outputLabel>
+							<p:selectOneRadio id="console"
+								value="#{profileController.gender}">
+								<f:selectItems value="#{profileController.genders}" var="gender"
+									itemValue="#{gender}"
+									itemLabel="#{out['gender_'.concat(gender)]}" />
+
+							</p:selectOneRadio>
+
+							<p:commandButton id="btnLoginId" value="#{out['update']}"
+								action="#{profileController.saveData()}" partialSubmit="true" />
+
+						</div>
+
+					</div>
+
+				</h:form>
+
+				<div class="form-group row">
+					<h:form id="formPw">
+						<div class="panel-heading">Profile</div>
+						<p:tab id="personalpw"
+							title="#{out['registration.personal.title']}">
+							<p:panel header="#{out['registration.personal.pw']}">
+								<h:panelGrid columns="2" cellpadding="5">
+
+									<h:outputLabel for="pwd1" value="#{out.password}: " />
+									<p:password id="pwd1" value="#{profileController.password}"
+										match="pwd2" label="Password 1" required="true">
+
+										<f:validateLength maximum="8" minimum="1" />
+
+									</p:password>
+
+									<h:outputLabel for="pwd2" value="#{out.password2}: " />
+									<p:password id="pwd2" value="#{profileController.password2}"
+										label="Password 2" required="true">
+										<f:validateLength maximum="8" minimum="1" />
+									</p:password>
+									<f:facet name="footer">
+										<p:commandButton id="btnLoginIdPw" partialSubmit="true"
+											value="#{out['update']}"
+											action="#{profileController.savePassword()}" />
+				</div>
+
+				<div class="form-group row">
+
+					<!-- 					<h:form enctype="multipart/form-data"> -->
+
+
+					<!-- 						<p:fileUpload value="#{profileController.file}" mode="simple" -->
+					<!-- 							skinSimple="true" /> -->
+
+					<!-- 						<p:commandButton value="Submit" ajax="false" -->
+					<!-- 							actionListener="#{profileController.upload}" /> -->
+					<!-- 					</h:form> -->
+
+					<h:form>
+						<p:fileUpload fileUploadListener="#{profileController.upload}"
+							mode="advanced" dragDropSupport="false" update="messages"
+							sizeLimit="100000" fileLimit="1"
+							allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+						<p:growl id="messages" showDetail="true" />
+					</h:form>
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</ui:define>
+</ui:composition>
