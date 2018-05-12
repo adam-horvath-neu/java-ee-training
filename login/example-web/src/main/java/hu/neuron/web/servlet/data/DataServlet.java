@@ -59,7 +59,8 @@ public class DataServlet extends HttpServlet {
 			service.registration(vo);
 			
 		} else if ("delete".equals(op)) {
-			// service.removeUser()
+			Long id = Long.parseLong(request.getParameter("id"));
+			userService.delete(id);
 		} else if ("update".equals(op)) {
 			
 			UserVo userVo = new UserVo();
