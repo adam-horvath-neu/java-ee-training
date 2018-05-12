@@ -1,7 +1,9 @@
 package hu.neuron.java.web.views;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
@@ -24,7 +26,8 @@ public class LazyUserDataModel extends LazyDataModel<UserVo> {
 	public List<UserVo> load(int first, int pageSize, String sortField, SortOrder sortOrder,
 			Map<String, Object> filters) {
 
-		userList = userService.getUserList(first, pageSize, sortField, sortOrder.name(), filters);
+		
+		userList = userService.getUserList(first, pageSize, sortField, sortOrder.name(),  filters);
 
 		
 		try {

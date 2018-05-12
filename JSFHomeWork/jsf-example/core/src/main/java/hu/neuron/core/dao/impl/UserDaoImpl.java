@@ -6,8 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
@@ -296,12 +298,12 @@ public class UserDaoImpl implements UserDao {
 		try {
 			connection = DatasourceUtil.getDatasource().getConnection();
 			StringBuilder sql = new StringBuilder("select * from USER_TABLE U ");
-
+			
 			String username = (String) filters.get("username");
 			String email = (String) filters.get("email");
 			String phone = (String) filters.get("phone");
 			String name = ((String) filters.get("getLocalName(currentUser)"));
-			String gender = (String) filters.get("gender.Name()");
+			String gender = (String) filters.get("gender.name()");
 			
 			
 
@@ -317,51 +319,72 @@ public class UserDaoImpl implements UserDao {
 
 			if (StringUtils.isNoneBlank(email)) {
 				sql.append("upper( U.email) LIKE upper(?) ");
-
-				if (!StringUtils.isNoneBlank(username)) {
+				
 					if (filters.size() > 1)
 						sql.append(" and ");
-				}
-				if (filters.size() > 2)
-					sql.append(" and ");
+				
 			}
 
 			if (StringUtils.isNoneBlank(phone)) {
 				sql.append(" U.phone LIKE ? ");
+				if (filters.size() > 1)
+					sql.append(" and ");
 			}
 			
 			if (StringUtils.isNoneBlank(gender)) {
-				sql.append(" U.gender LIKE ? ");
+				sql.append(" U.gender = ? ");
+				if (filters.size() > 1)
+					sql.append(" and ");
 			}
 			
 			if (StringUtils.isNoneBlank(name) ) {
 				sql.append(" upper(U.firstname) LIKE upper(?) or upper( U.lastname) LIKE upper(?) ");
+				if (filters.size() > 1)
+					sql.append(" and ");
 			}
-
-			statement = connection.prepareStatement(sql.toString());
-
+			
+			String checkedSql =null;
+			if(sql.lastIndexOf("and")>=(sql.length()-5)) {
+				checkedSql=sql.substring(0, sql.length()-4);
+				
+			}
+			else
+				checkedSql=sql.toString();
+			
+			
+			statement = connection.prepareStatement(checkedSql.toString());
+			
 			if (StringUtils.isNoneBlank(username)) {
-				int index = filters.size() - (new ArrayList<>(filters.keySet()).indexOf("username"));
-				statement.setString(index, "%" + username + "%");
+				int index =new ArrayList<>(filters.keySet()).indexOf("username");
+				statement.setString(index+1, "%" + username + "%");
 			}
 
 			if (StringUtils.isNoneBlank(email)) {
-				int index = filters.size() - (new ArrayList<>(filters.keySet()).indexOf("email"));
-				statement.setString(index, "%" + email + "%");
+				int index =new ArrayList<>(filters.keySet()).indexOf("email");
+				statement.setString(index+1, "%" + email + "%");
 			}
 
 			if (StringUtils.isNoneBlank(phone)) {
-				int index = filters.size() - (new ArrayList<>(filters.keySet()).indexOf("phone"));
-				statement.setString(index, "%" + phone + "%");
+				int index =new ArrayList<>(filters.keySet()).indexOf("phone");
+				statement.setString(index+1, "%" + phone + "%");
 			}
 			
 			if (StringUtils.isNoneBlank(name)) {
-				int index = filters.size() - (new ArrayList<>(filters.keySet()).indexOf("phone"));
-				statement.setString(1, "%" + name + "%");
-				statement.setString(2, "%" + name + "%");
+				int index =new ArrayList<>(filters.keySet()).indexOf("getLocalName(currentUser)");
+				statement.setString(index+1, "%" + name + "%");
+				statement.setString(index+1, "%" + name + "%");
 				
 				
 			}
+			
+			if (StringUtils.isNoneBlank(gender)) {
+				int index =new ArrayList<>(filters.keySet()).indexOf("gender.name()");
+				statement.setString(index+1,  gender );
+				
+				
+				
+			}
+
 
 			resultSet = statement.executeQuery();
 

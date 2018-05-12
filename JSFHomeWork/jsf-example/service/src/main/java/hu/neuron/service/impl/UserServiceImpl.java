@@ -1,7 +1,9 @@
 package hu.neuron.service.impl;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -80,11 +82,16 @@ public class UserServiceImpl implements UserService {
 		return userConverter.toUserVo(userDao.findAll());
 	}
 
+	/* (non-Javadoc)
+	 * @see hu.neuron.service.UserService#getUserList(int, int, java.lang.String, java.lang.String, java.util.TreeMap)
+	 */
 	@Override
 	public List<UserVo> getUserList(int first, int pageSize, String sortField, String name,
 			Map<String, Object> filters) {
 		List<UserDto> userDtos = userDao.getUserList(first, pageSize, sortField, name, filters);
 		return userConverter.toUserVo(userDtos);
 	}
+
+	
 
 }
