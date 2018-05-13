@@ -353,37 +353,39 @@ public class UserDaoImpl implements UserDao {
 			
 			
 			statement = connection.prepareStatement(checkedSql.toString());
-			
+			int i=0;
 			if (StringUtils.isNoneBlank(username)) {
 				int index =new ArrayList<>(filters.keySet()).indexOf("username");
-				statement.setString(index+1, "%" + username + "%");
+				statement.setString(++i, "%" + username + "%");
 			}
 
 			if (StringUtils.isNoneBlank(email)) {
 				int index =new ArrayList<>(filters.keySet()).indexOf("email");
-				statement.setString(index+1, "%" + email + "%");
+				statement.setString(++i, "%" + email + "%");
 			}
 
 			if (StringUtils.isNoneBlank(phone)) {
 				int index =new ArrayList<>(filters.keySet()).indexOf("phone");
-				statement.setString(index+1, "%" + phone + "%");
+				statement.setString(++i, "%" + phone + "%");
+			}
+			
+			
+			if (StringUtils.isNoneBlank(gender)) {
+				int index =new ArrayList<>(filters.keySet()).indexOf("gender.name()");
+				statement.setString(++i,  gender );
+				
+				
+				
 			}
 			
 			if (StringUtils.isNoneBlank(name)) {
 				int index =new ArrayList<>(filters.keySet()).indexOf("getLocalName(currentUser)");
-				statement.setString(index+1, "%" + name + "%");
-				statement.setString(index+1, "%" + name + "%");
+				statement.setString(++i, "%" + name + "%");
+				statement.setString(++i, "%" + name + "%");
 				
 				
 			}
-			
-			if (StringUtils.isNoneBlank(gender)) {
-				int index =new ArrayList<>(filters.keySet()).indexOf("gender.name()");
-				statement.setString(index+1,  gender );
-				
-				
-				
-			}
+		
 
 
 			resultSet = statement.executeQuery();

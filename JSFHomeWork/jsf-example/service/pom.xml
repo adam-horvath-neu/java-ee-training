@@ -89,4 +89,7 @@
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
 	</dependencies>
+	<build>
+	<finalName>service</finalName>
+	</build>
 </project>

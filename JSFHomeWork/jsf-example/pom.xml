@@ -37,6 +37,8 @@
 		<module>core</module>
 		<module>service</module>
 		<module>service-api</module>
+		<module>jsf-era</module>
+		<module>jsf-ear</module>
 	</modules>
 
 

@@ -103,6 +103,6 @@
 
 	</dependencies>
 	<build>
-		<finalName>WebApp</finalName>
+		<finalName>web</finalName>
 	</build>
 </project>
