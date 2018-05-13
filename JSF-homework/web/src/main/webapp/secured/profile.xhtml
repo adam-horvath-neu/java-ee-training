@@ -1,0 +1,109 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/masterLayout.xhtml">
+
+
+	<ui:define name="pageTitle">#{out['profile.title']}</ui:define>
+
+	<ui:define name="head-extra">
+
+	</ui:define>
+
+	<ui:define name="content">
+
+		<div class="panel panel-default">
+
+			<div class="panel-heading">Profile</div>
+			<div class="panel-body">
+				<h:form id="form">
+
+
+					<div class="form-group row">
+
+						<h:outputLabel for="userName" value="Username" styleClass="col-sm-2 col-form-label" />
+
+						<div class="col-sm-10">
+							<h:inputText id="userName" readonly="true" 
+								styleClass="form-control" label="userName"
+								value="#{profileController.userVo.username}" />
+						</div>
+						
+						<h:outputLabel for="firstName" value="Firstname" styleClass="col-sm-2 col-form-label" />
+
+						<div class="col-sm-10">
+							<h:inputText id="firstName" 
+								styleClass="form-control" label="firstName" 
+								value="#{profileController.userVo.firstname}" />
+						</div>
+
+ 						<h:outputLabel for="lastName" value="Lastname" styleClass="col-sm-2 col-form-label" />
+
+						<div class="col-sm-10">
+							<h:inputText id="lastName" 
+								styleClass="form-control" label="lastName" 
+								value="#{profileController.userVo.lastname}" />
+						</div>
+
+						<h:outputLabel for="password" value="Password" styleClass="col-sm-2 col-form-label" />
+
+						<div class="col-sm-10">
+							<h:inputText id="password" 
+								styleClass="form-control" label="password" 
+								value="#{profileController.userVo.password}" />
+						</div>
+
+						<h:outputLabel for="email" value="Email" styleClass="col-sm-2 col-form-label" />
+
+						<div class="col-sm-10">
+							<h:inputText id="email" 
+								styleClass="form-control" label="email"
+								value="#{profileController.userVo.email}" />
+						</div>
+
+						<h:outputLabel for="phone" value="Phone" styleClass="col-sm-2 col-form-label" />
+
+						<div class="col-sm-10">
+							<h:inputText id="phone" 
+								styleClass="form-control" label="phone"
+								value="#{profileController.userVo.phone}" />
+						</div>
+						
+						
+						<p:commandButton id="btnLoginId" 
+							value="Update profile"
+							action="#{profileController.save()}" 
+							partialSubmit="true" /> 
+						
+					</div>
+
+				</h:form>
+
+				<div class="form-group row">
+
+					<h:form>
+
+						<p:fileUpload fileUploadListener="#{profileController.upload}"
+						mode="advanced" 
+						dragDropSupport="false"
+             			multiple="true" 
+             			update="messages" 
+             			allowTypes="/(\.|\/)(gif|jpe?g|zip)$/"
+             			sizeLimit="10000000" 
+             			fileLimit="1" />
+
+						<p:growl id="messages" showDetail="true" />
+
+					</h:form>
+					
+				</div>
+
+			</div>
+
+		</div>
+
+	</ui:define>
+</ui:composition>
