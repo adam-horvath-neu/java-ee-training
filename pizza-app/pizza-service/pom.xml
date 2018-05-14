@@ -19,6 +19,14 @@
 			<groupId>hu.neuron.pizza</groupId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ma.glasnost.orika</groupId>
+			<artifactId>orika-core</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>pizza-service</finalName>

@@ -14,5 +14,8 @@
         <dependent-module archiveName="pizza-core-0.0.1-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/pizza-core/pizza-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="orika-core-1.5.2.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/ma/glasnost/orika/orika-core/1.5.2/orika-core-1.5.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>
