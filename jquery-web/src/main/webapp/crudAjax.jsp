@@ -5,9 +5,9 @@
 <head>
 <title></title>
 <jsp:include page="header.jsp"></jsp:include>
-<script src="resources/datatable/js/jquery.dataTables.js"></script>
-<link href="resources/datatable/css/jquery.dataTables_themeroller.css"
-	rel="stylesheet">
+<script src="src/main/resources/datatable/js/jquery.dataTables.js"></script>
+<link href="src/main/resources/datatable/css/jquery.dataTables_themeroller.css"
+	rel="stylesheet"/>
 <style>
 .demoHeaders {
 	margin-top: 2em;
