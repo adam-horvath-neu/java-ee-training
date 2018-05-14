@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="pizza-ear-0.0.1-SNAPSHOT">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
+        <dependent-module archiveName="pizza-service.jar" deploy-path="/" handle="module:/resource/pizza-service/pizza-service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="pizza-web.war" deploy-path="/" handle="module:/resource/pizza-web/pizza-web">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="pizza-service-api-0.0.1-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/pizza-service-api/pizza-service-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="pizza-core-0.0.1-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/pizza-core/pizza-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
